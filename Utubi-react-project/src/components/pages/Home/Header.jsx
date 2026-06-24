@@ -27,11 +27,13 @@ function Header({ handleSideMenu, setFullWidth }) {
 	const [showAdminLogin, setAdminLogin] = useState(false);
 
 	const [showSignUp, setSignUp] = useState(false);
+	const [loginMessage, setLoginMessage] = useState("");
 
 	const loginState = () => {
 		setLogin(false);
 		setSignUp(false);
 		setToggle(false);
+		setLoginMessage("")
 	};
 
 	const [username, setUsername] = useState("");
@@ -61,17 +63,20 @@ function Header({ handleSideMenu, setFullWidth }) {
 	};
 
 	const loginBehaviour = async (username, password) => {
-		const database = await getDatabase();
-
-		const user = database.find((u) => u.username === username && u.password === password);
-
-		console.log(user ? "Login OK" : "Login falhou");
-
-		console.log(user);
-
-		if (user) {
-			// Aqui o que alteramos foi a forma como definimos a imagem do usuário. Se o usuário tiver uma imagem de perfil definida, usamos essa imagem; caso contrário, usamos a imagem padrão noUser.
-			setImage(user.pic ? `/profilepics/${user.pic}` : noUser);
+		setLoginMessage("")
+		try {
+			const database = await getDatabase()
+			const user = database.find((item) =>{item.username === username && item.password === password})
+			if(!user){
+				setLoginMessage("Username incorrecto")
+				returns
+			}
+			setUsername("")
+			setPassword("")
+			loginState()
+		} catch (error) {
+			console.error(error)
+			setLoginMessage("Erro BackEnd")
 		}
 	};
 
@@ -159,6 +164,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 						adminProfile={adminProfile}
 						getDatabase={getDatabase}
 						loginBehaviour={loginBehaviour}
+						loginMessage={loginMessage}
 					/>
 				)}
 
