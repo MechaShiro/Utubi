@@ -69,7 +69,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 			const user = database.find((item) =>{item.username === username && item.password === password})
 			if(!user){
 				setLoginMessage("Username incorrecto")
-				returns
+				return
 			}
 			setUsername("")
 			setPassword("")
