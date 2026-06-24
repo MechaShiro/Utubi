@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
-
 import "../../../css/header.css";
-
 import RegistrationMenu from "../../RegistrationMenu";
 import Login from "../../Login";
 import SignUp from "../../SignUp";
 import SideMenu from "../../SideMenu";
-
 import noUser from "../../../imgs/profilepics/user_icon.svg";
 
-const USERS_API_URL = "/api/users"
+const USERS_API_URL = "/api/users";
 
 function Header({ handleSideMenu, setFullWidth }) {
 	const [toggle, setToggle] = useState(false);
@@ -23,74 +20,60 @@ function Header({ handleSideMenu, setFullWidth }) {
 
 	//Login and SignUp
 	const [showLogin, setLogin] = useState(false);
-
 	const [showAdminLogin, setAdminLogin] = useState(false);
-
 	const [showSignUp, setSignUp] = useState(false);
 	const [loginMessage, setLoginMessage] = useState("");
-
 	const loginState = () => {
 		setLogin(false);
 		setSignUp(false);
 		setToggle(false);
-		setLoginMessage("")
+		setLoginMessage("");
 	};
-
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [image, setImage] = useState(noUser);
 
-	//Creating accounts
-
-	const profiles = JSON.parse(localStorage.getItem("profiles")) || []; //"Tenta carregar os utilizadores guardados. Se ainda não houver utilizadores guardados, começa com uma lista vazia."
-	const adminProfile = profiles.some((profiles) => profiles.username === "admin");
-	if (!adminProfile) {
-		profiles.push({
-			username: "admin",
-			password: "admin",
-			profilePicture: adminUser,
-		});
-
-		localStorage.setItem("profiles", JSON.stringify(profiles));
-	}
-
+	// ler base de dados
 	const getDatabase = async () => {
-		const response = await fetch(USERS_API_URL)
-		if(!response.ok){
-			throw new Error(`Falha ao obter utilizadores : ${response.status}`)
+		const response = await fetch(USERS_API_URL);
+		if (!response.ok) {
+			throw new Error(`Falha ao obter utilizadores : ${response.status}`);
 		}
-		return response.json()
+		return response.json();
 	};
 
+	//login
 	const loginBehaviour = async (username, password) => {
-		setLoginMessage("")
+		setLoginMessage("");
 		try {
-			const database = await getDatabase()
-			const user = database.find((item) =>{item.username === username && item.password === password})
-			if(!user){
-				setLoginMessage("Username incorrecto")
-				return
+			const database = await getDatabase();
+			const user = database.find((item) => item.username === username && item.password === password);
+			if (!user) {
+				setLoginMessage("Username incorrecto");
+				return;
 			}
-			setUsername("")
-			setPassword("")
-			loginState()
+			setImage(user.pic ? `/profilepics/${String(user.pic).trim()}` : noUser);
+			setUsername("");
+			setPassword("");
+			loginState();
 		} catch (error) {
-			console.error(error)
-			setLoginMessage("Erro BackEnd")
+			console.error(error);
+			setLoginMessage("Erro BackEnd");
 		}
 	};
 
-	const signupBehaviour = async(username ,password) => {
+	//registo
+	const signupBehaviour = async (username, password) => {
 		const database = await getDatabase();
 
 		const user = database.find((u) => u.username === username);
 
-		if(user){
-			alert("User ja existe wii")
-			return 
+		if (user) {
+			alert("User ja existe wii");
+			return;
 		}
-		alert("Nao esta registado wii")
-	}
+		alert("Nao esta registado wii");
+	};
 
 	return (
 		<>
@@ -160,8 +143,6 @@ function Header({ handleSideMenu, setFullWidth }) {
 						setUsername={setUsername}
 						password={password}
 						setPassword={setPassword}
-						profiles={profiles}
-						adminProfile={adminProfile}
 						getDatabase={getDatabase}
 						loginBehaviour={loginBehaviour}
 						loginMessage={loginMessage}
@@ -171,7 +152,6 @@ function Header({ handleSideMenu, setFullWidth }) {
 				{showSignUp && (
 					<SignUp
 						handleGoBack={handleGoBack}
-						profilePictures={profilePictures}
 						username={username}
 						setUsername={setUsername}
 						password={password}
