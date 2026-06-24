@@ -11,9 +11,9 @@ app.use(express.json())
 const csvPath = path.resolve(__dirname, "../public/database/database.csv")
 
 async function readCSV() {
-    const text = await readfile(csvPath , `UTF8`)
+    const text = await readFile(csvPath , `utf8`)
     const lines = text.trim().split("\n")
-    const headers = lines(0).split(",")
+    const headers = lines[0].split(",")
 
     return lines.slice(1).map((line) => {
 				const values = line.split(",");
