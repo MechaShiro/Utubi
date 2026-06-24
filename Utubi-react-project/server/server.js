@@ -1,14 +1,14 @@
-import express from `express` //nome bibloteca back end
-import cors from `cors` //nome bibloteca back end
-import fs from `fs` //nome bibloteca back end , sim usamos 3 biblotecas
-import path from `node:path`
+const express = require(`express`)//nome bibloteca back end
+const cors = require(`cors`) //nome bibloteca back end
+const {readFile} = require(`node:fs/promises`) //nome bibloteca back end , sim usamos 3 biblotecas
+const path = require(`node:path`)
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 
-const csvPath = path.resolve("../public/database/database.csv")
+const csvPath = path.resolve(__dirname, "../public/database/database.csv")
 
 async function readCSV() {
     const text = await readfile(csvPath , `UTF8`)
