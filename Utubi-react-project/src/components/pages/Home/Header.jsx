@@ -7,10 +7,9 @@ import Login from "../../Login";
 import SignUp from "../../SignUp";
 import SideMenu from "../../SideMenu";
 
-import fs from "fs";
-import path from "/database/database.csv";
-
 import noUser from "../../../imgs/profilepics/user_icon.svg";
+
+const USERS_API_URL = "/api/users"
 
 function Header({ handleSideMenu, setFullWidth }) {
 	const [toggle, setToggle] = useState(false);
@@ -54,21 +53,11 @@ function Header({ handleSideMenu, setFullWidth }) {
 	}
 
 	const getDatabase = async () => {
-		const response = await fetch(path);
-		const data = await response.text();
-
-		// Aqui a unica alteração que fiz foi adicionar o trim() para remover espaços em branco no início e no fim de cada campo, caso existam.
-		return data
-			.split("\n")
-			.slice(1)
-			.map((line) => {
-				const [username, password, pic] = line.split(",");
-				return {
-					username: (username || "").trim(),
-					password: (password || "").trim(),
-					pic: (pic || "").trim(),
-				};
-			});
+		const response = await fetch(USERS_API_URL)
+		if(!response.ok){
+			throw new Error(`Falha ao obter utilizadores : ${response.status}`)
+		}
+		return response.json()
 	};
 
 	const loginBehaviour = async (username, password) => {
@@ -93,11 +82,9 @@ function Header({ handleSideMenu, setFullWidth }) {
 
 		if(user){
 			alert("User ja existe wii")
-		}else{
-			const linha = `${username},${password}\n`; // linha que vamos adicionar
-    		fs.appendFileSync(path, linha); // serve para adicionar linhas no ficheiro CSV
-
+			return 
 		}
+		alert("Nao esta registado wii")
 	}
 
 	return (

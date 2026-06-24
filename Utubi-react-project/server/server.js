@@ -1,6 +1,6 @@
 const express = require(`express`)//nome bibloteca back end
 const cors = require(`cors`) //nome bibloteca back end
-const {readFile} = require(`node:fs/promises`) //nome bibloteca back end , sim usamos 3 biblotecas
+const {readFile, access} = require(`node:fs/promises`) //nome bibloteca back end , sim usamos 3 biblotecas
 const path = require(`node:path`)
 
 const app = express()
@@ -11,6 +11,7 @@ app.use(express.json())
 const csvPath = path.resolve(__dirname, "../public/database/database.csv")
 
 async function readCSV() {
+    await access(csvPath)
     const text = await readFile(csvPath , `utf8`)
     const lines = text.trim().split("\n")
     const headers = lines[0].split(",")
@@ -26,8 +27,8 @@ app.get(`/api/users` , async (req , res) => {
         const rows = await readCSV()
         return res.json(rows)
     }  
-    catch(Error){
-        console.log(Error)
+    catch(error){
+        console.error(error)
         return res.status(500).json({message:"Erro a ler CSV"})
     }
 })
