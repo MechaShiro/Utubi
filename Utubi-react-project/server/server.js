@@ -22,6 +22,9 @@ async function readCSV() {
 			});
 }
 
+// TO DO: Criar funcao parecida ao readCSV mas para writeCSV , que vai registar utilizadores novos no CSV
+
+// Endpoints
 app.get(`/api/users` , async (req , res) => {
     try {
         const rows = await readCSV()
@@ -32,6 +35,8 @@ app.get(`/api/users` , async (req , res) => {
         return res.status(500).json({message:"Erro a ler CSV"})
     }
 })
+
+// TO DO: Criar endpoint para registar utilizadores novos no CSV
 
 app.listen(3001,() => {
     console.log("API a correr em http://localhost:3001")

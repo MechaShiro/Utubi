@@ -68,11 +68,15 @@ function Header({ handleSideMenu, setFullWidth }) {
 
 		const user = database.find((u) => u.username === username);
 
+		// To Do: Fazer o que deve acontecer se o user existir ou nao
 		if (user) {
 			alert("User ja existe wii");
 			return;
 		}
+
+		// TO DO: se o user nao existir, temos de chamar uma funcao que temos de criar no server.js para registar uma nova entrie no CSV
 		alert("Nao esta registado wii");
+
 	};
 
 	return (
