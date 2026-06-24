@@ -1,0 +1,23 @@
+.div_BlockType2{
+
+flex-direction: column;
+align-items: start;
+margin: 0;
+
+div{
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 5px;
+    }
+
+ul{
+    padding-left: 15px;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+}

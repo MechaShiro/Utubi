@@ -1,0 +1,44 @@
+.signup_container{
+  position: absolute;
+    right: 0;
+    z-index: 1;
+    height: fit-content;
+
+    padding: 10px;
+
+    input{
+      height: 32px;
+      width: calc(192px - 15px);
+
+      border-radius: var(--primary-borderRadius);
+
+      background-color: var(--primary-color);
+      color: var(--primary-bg-color);
+
+      padding-left: 15px;
+    
+    }
+
+    .btn_SignUpBtn{
+      color: var(--primary-bg-color);
+        
+      width: 80px;
+      height: 50px;
+    }
+
+    .btn_goback{
+      width: 30px;
+      height: 30px;
+
+      background-color: var(--primary-bg-color);
+    }
+
+    .signup_ft{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      width: 100%;
+    }
+    
+}

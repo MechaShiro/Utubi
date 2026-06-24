@@ -1,0 +1,97 @@
+
+
+header{
+    background-color: var(--primary-color);
+
+    width: 100%;
+    height: 108px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+h1{
+    color: var(--primary-bg-color);
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+}
+
+form{
+    margin: 0;
+    padding: 0;
+
+    width: 645px;
+    height: 70px;
+
+    display: flex;
+
+    
+    border-radius: var(--primary-borderRadius);
+
+    input{
+        width: calc(100% - 33px);
+        height: 100%;
+
+        background-color: var(--primary-bg-color);
+        color: var(--primary-color);
+
+        border-top-left-radius: var(--primary-borderRadius);
+        border-bottom-left-radius: var(--primary-borderRadius);
+        border: none;
+
+        font-size: 22px;
+
+    }
+
+    .btn_search{
+        border-top-right-radius: var(--primary-borderRadius);
+        border-bottom-right-radius: var(--primary-borderRadius);
+
+        background-color: var(--primary-bg-color);
+    }
+
+}
+
+button{
+        width: 50px;
+        height: 100%;
+
+        border: none;
+
+        border: none;
+}
+
+
+.subDiv{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profilePic{
+    width: 72px;
+
+    margin-right: 15px;
+
+    img{
+        border-radius: var(--secondary-borderRadius);}
+}
+
+.btn_notifications,
+.btn_menu,
+.btn_user{
+    background-color: var(--primary-color);
+}
+
+.btn_menu{
+    margin-left: 15px;
+}
+
+.btn_user{
+    margin-right: 15px;
+}
+

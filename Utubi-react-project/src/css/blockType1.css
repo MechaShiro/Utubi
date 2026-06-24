@@ -1,0 +1,32 @@
+
+.div_BlockType1{
+    display: flex;
+    align-items: center;
+    align-self: center;
+    
+    gap: 5px;
+
+
+    background-color: var(--primary-bg-color);
+    color: var(--primary-color);
+
+    font-weight: 800;
+
+    width: 230px;
+    height: fit-content;
+
+    padding-top:15px;
+    padding-bottom:15px;
+
+    border-radius: var(--primary-borderRadius);
+
+    img{
+        width: 32px;
+
+         padding-left: 15px;
+    }
+
+    :hover{
+         cursor: pointer;
+    }
+}

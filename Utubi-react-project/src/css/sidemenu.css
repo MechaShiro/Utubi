@@ -1,0 +1,15 @@
+.div_SideMenu{
+    background-color: var(--secondary-bg-color);
+    
+    width: 250px;
+    height: calc(100vh - 108px);
+
+    padding-top: 15px;
+}
+
+.ul_SideMenu{
+    display: flex;
+    flex-direction:column ;
+    justify-content: center;
+    gap: 15px;
+}
