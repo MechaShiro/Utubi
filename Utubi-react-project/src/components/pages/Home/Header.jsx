@@ -7,14 +7,10 @@ import Login from "../../Login";
 import SignUp from "../../SignUp";
 import SideMenu from "../../SideMenu";
 
+import fs from "fs";
+import path from "/database/database.csv";
+
 import noUser from "../../../imgs/profilepics/user_icon.svg";
-import adminUser from "../../../imgs/profilepics/admin_profile.jpg";
-import profile1 from "../../../imgs/profilepics/profile1.jpg";
-import profile2 from "../../../imgs/profilepics/profile2.jpg";
-import profile3 from "../../../imgs/profilepics/profile3.jpg";
-import profile4 from "../../../imgs/profilepics/profile4.png";
-import profile5 from "../../../imgs/profilepics/profile5.jpg";
-import profile6 from "../../../imgs/profilepics/profile6.jpg";
 
 function Header({ handleSideMenu, setFullWidth }) {
 	const [toggle, setToggle] = useState(false);
@@ -32,8 +28,6 @@ function Header({ handleSideMenu, setFullWidth }) {
 	const [showAdminLogin, setAdminLogin] = useState(false);
 
 	const [showSignUp, setSignUp] = useState(false);
-
-	const profilePictures = [profile1, profile2, profile3, profile4, profile5, profile6];
 
 	const loginState = () => {
 		setLogin(false);
@@ -60,10 +54,10 @@ function Header({ handleSideMenu, setFullWidth }) {
 	}
 
 	const getDatabase = async () => {
-		const response = await fetch("/database/database.csv");
+		const response = await fetch(path);
 		const data = await response.text();
 
-        // Aqui a unica alteração que fiz foi adicionar o trim() para remover espaços em branco no início e no fim de cada campo, caso existam.
+		// Aqui a unica alteração que fiz foi adicionar o trim() para remover espaços em branco no início e no fim de cada campo, caso existam.
 		return data
 			.split("\n")
 			.slice(1)
@@ -87,10 +81,24 @@ function Header({ handleSideMenu, setFullWidth }) {
 		console.log(user);
 
 		if (user) {
-            // Aqui o que alteramos foi a forma como definimos a imagem do usuário. Se o usuário tiver uma imagem de perfil definida, usamos essa imagem; caso contrário, usamos a imagem padrão noUser.
+			// Aqui o que alteramos foi a forma como definimos a imagem do usuário. Se o usuário tiver uma imagem de perfil definida, usamos essa imagem; caso contrário, usamos a imagem padrão noUser.
 			setImage(user.pic ? `/profilepics/${user.pic}` : noUser);
 		}
 	};
+
+	const signupBehaviour = async(username ,password) => {
+		const database = await getDatabase();
+
+		const user = database.find((u) => u.username === username);
+
+		if(user){
+			alert("User ja existe wii")
+		}else{
+			const linha = `${username},${password}\n`; // linha que vamos adicionar
+    		fs.appendFileSync(path, linha); // serve para adicionar linhas no ficheiro CSV
+
+		}
+	}
 
 	return (
 		<>

@@ -6,13 +6,6 @@ import GoBackButton from './GoBackButton'
 
 function SignUp( {handleGoBack , profilePictures , username , setUsername, password , setPassword}){
 
-    const signupBehaviour = (e) => {
-        e.preventDefault()
-
-        if(username === '' || password === ''){
-            alert("Impossivel criar conta. Por favor prencha os campos necessários")
-        }
-    }
     return(
         <>
             <div>
@@ -25,7 +18,7 @@ function SignUp( {handleGoBack , profilePictures , username , setUsername, passw
                     <input className="password_input" type="text" placeholder="Enter Username" id="password"></input>
 
                     <div className="signup_ft">
-                    <button type="submit" className="btn_SignUpBtn" onClick={signupBehaviour}>Sign Up</button>
+                    <button type="submit" className="btn_SignUpBtn">Sign Up</button>
                     <GoBackButton 
                                 handleGoBack = {handleGoBack}/>
                     </div>
