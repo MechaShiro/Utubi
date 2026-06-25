@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
-
 import "../../../css/header.css";
-
 import RegistrationMenu from "../../RegistrationMenu";
 import Login from "../../Login";
 import SignUp from "../../SignUp";
 import SideMenu from "../../SideMenu";
-
-import fs from "fs";
-import path from "/database/database.csv";
-
 import noUser from "../../../imgs/profilepics/user_icon.svg";
+
+const USERS_API_URL = "/api/users";
 
 function Header({ handleSideMenu, setFullWidth }) {
 	const [toggle, setToggle] = useState(false);
@@ -24,81 +20,64 @@ function Header({ handleSideMenu, setFullWidth }) {
 
 	//Login and SignUp
 	const [showLogin, setLogin] = useState(false);
-
 	const [showAdminLogin, setAdminLogin] = useState(false);
-
 	const [showSignUp, setSignUp] = useState(false);
-
+	const [loginMessage, setLoginMessage] = useState("");
 	const loginState = () => {
 		setLogin(false);
 		setSignUp(false);
 		setToggle(false);
+		setLoginMessage("");
 	};
-
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [image, setImage] = useState(noUser);
 
-	//Creating accounts
-
-	const profiles = JSON.parse(localStorage.getItem("profiles")) || []; //"Tenta carregar os utilizadores guardados. Se ainda não houver utilizadores guardados, começa com uma lista vazia."
-	const adminProfile = profiles.some((profiles) => profiles.username === "admin");
-	if (!adminProfile) {
-		profiles.push({
-			username: "admin",
-			password: "admin",
-			profilePicture: adminUser,
-		});
-
-		localStorage.setItem("profiles", JSON.stringify(profiles));
-	}
-
+	// ler base de dados
 	const getDatabase = async () => {
-		const response = await fetch(path);
-		const data = await response.text();
-
-		// Aqui a unica alteração que fiz foi adicionar o trim() para remover espaços em branco no início e no fim de cada campo, caso existam.
-		return data
-			.split("\n")
-			.slice(1)
-			.map((line) => {
-				const [username, password, pic] = line.split(",");
-				return {
-					username: (username || "").trim(),
-					password: (password || "").trim(),
-					pic: (pic || "").trim(),
-				};
-			});
+		const response = await fetch(USERS_API_URL);
+		if (!response.ok) {
+			throw new Error(`Falha ao obter utilizadores : ${response.status}`);
+		}
+		return response.json();
 	};
 
+	//login
 	const loginBehaviour = async (username, password) => {
-		const database = await getDatabase();
-
-		const user = database.find((u) => u.username === username && u.password === password);
-
-		console.log(user ? "Login OK" : "Login falhou");
-
-		console.log(user);
-
-		if (user) {
-			// Aqui o que alteramos foi a forma como definimos a imagem do usuário. Se o usuário tiver uma imagem de perfil definida, usamos essa imagem; caso contrário, usamos a imagem padrão noUser.
-			setImage(user.pic ? `/profilepics/${user.pic}` : noUser);
+		setLoginMessage("");
+		try {
+			const database = await getDatabase();
+			const user = database.find((item) => item.username === username && item.password === password);
+			if (!user) {
+				setLoginMessage("Username incorrecto");
+				return;
+			}
+			setImage(user.pic ? `/profilepics/${String(user.pic).trim()}` : noUser);
+			setUsername("");
+			setPassword("");
+			loginState();
+		} catch (error) {
+			console.error(error);
+			setLoginMessage("Erro BackEnd");
 		}
 	};
 
-	const signupBehaviour = async(username ,password) => {
+	//registo
+	const signupBehaviour = async (username, password) => {
 		const database = await getDatabase();
 
 		const user = database.find((u) => u.username === username);
 
-		if(user){
-			alert("User ja existe wii")
-		}else{
-			const linha = `${username},${password}\n`; // linha que vamos adicionar
-    		fs.appendFileSync(path, linha); // serve para adicionar linhas no ficheiro CSV
-
+		// To Do: Fazer o que deve acontecer se o user existir ou nao
+		if (user) {
+			alert("User ja existe wii");
+			return;
 		}
-	}
+
+		// TO DO: se o user nao existir, temos de chamar uma funcao que temos de criar no server.js para registar uma nova entrie no CSV
+		alert("Nao esta registado wii");
+
+	};
 
 	return (
 		<>
@@ -168,17 +147,15 @@ function Header({ handleSideMenu, setFullWidth }) {
 						setUsername={setUsername}
 						password={password}
 						setPassword={setPassword}
-						profiles={profiles}
-						adminProfile={adminProfile}
 						getDatabase={getDatabase}
 						loginBehaviour={loginBehaviour}
+						loginMessage={loginMessage}
 					/>
 				)}
 
 				{showSignUp && (
 					<SignUp
 						handleGoBack={handleGoBack}
-						profilePictures={profilePictures}
 						username={username}
 						setUsername={setUsername}
 						password={password}
