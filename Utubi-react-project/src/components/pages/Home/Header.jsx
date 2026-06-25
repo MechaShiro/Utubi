@@ -6,7 +6,7 @@ import SignUp from "../../SignUp";
 import SideMenu from "../../SideMenu";
 import noUser from "../../../imgs/profilepics/user_icon.svg";
 
-const USERS_API_URL = "/api/users";
+
 
 function Header({ handleSideMenu, setFullWidth }) {
 	const [toggle, setToggle] = useState(false);
@@ -34,6 +34,9 @@ function Header({ handleSideMenu, setFullWidth }) {
 	const [image, setImage] = useState(noUser);
 
 	// ler base de dados
+
+	const USERS_API_URL = "/api/users";
+
 	const getDatabase = async () => {
 		const response = await fetch(USERS_API_URL);
 		if (!response.ok) {
@@ -43,19 +46,20 @@ function Header({ handleSideMenu, setFullWidth }) {
 	};
 
 	//login
-	const loginBehaviour = async (username, password) => {
+	const loginBehaviour = async (username, password, image) => {
 		setLoginMessage("");
 		try {
 			const database = await getDatabase();
-			const user = database.find((item) => item.username === username && item.password === password);
+			const user = database.find((item) => item.username === username && item.password === password && item.image === image);
 			if (!user) {
 				setLoginMessage("Username incorrecto");
 				return;
 			}
-			setImage(user.pic ? `/profilepics/${String(user.pic).trim()}` : noUser);
+			setImage(user.image ? `/profilepics/${String(user.image).trim()}` : noUser);
 			setUsername("");
 			setPassword("");
 			loginState();
+			console.log("bem vindo admin")
 		} catch (error) {
 			console.error(error);
 			setLoginMessage("Erro BackEnd");
@@ -63,21 +67,21 @@ function Header({ handleSideMenu, setFullWidth }) {
 	};
 
 	//registo
-	const signupBehaviour = async (username, password) => {
-		const database = await getDatabase();
+	const signupBehaviour = async(username, password) => {
+    const response = await fetch("http://localhost:3001/api/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username,
+            password
+        })
+    })
 
-		const user = database.find((u) => u.username === username);
-
-		// To Do: Fazer o que deve acontecer se o user existir ou nao
-		if (user) {
-			alert("User ja existe wii");
-			return;
-		}
-
-		// TO DO: se o user nao existir, temos de chamar uma funcao que temos de criar no server.js para registar uma nova entrie no CSV
-		alert("Nao esta registado wii");
-
-	};
+    const data = await response.json()
+    console.log(data)
+}
 
 	return (
 		<>
@@ -160,6 +164,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 						setUsername={setUsername}
 						password={password}
 						setPassword={setPassword}
+						signupBehaviour = {signupBehaviour}
 					/>
 				)}
 			</div>
