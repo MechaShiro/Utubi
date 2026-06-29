@@ -6,7 +6,12 @@ import SignUp from "../../SignUp";
 import SideMenu from "../../SideMenu";
 import noUser from "../../../imgs/profilepics/user_icon.svg";
 
-
+import profile1 from "../../../imgs/profilepics/profile1.jpg"
+import profile2 from "../../../imgs/profilepics/profile2.jpg"
+import profile3 from "../../../imgs/profilepics/profile3.jpg"
+import profile4 from "../../../imgs/profilepics/profile4.png"
+import profile5 from "../../../imgs/profilepics/profile5.jpg"
+import profile6 from "../../../imgs/profilepics/profile6.jpg"
 
 function Header({ handleSideMenu, setFullWidth }) {
 	const [toggle, setToggle] = useState(false);
@@ -32,6 +37,9 @@ function Header({ handleSideMenu, setFullWidth }) {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [image, setImage] = useState(noUser);
+
+	const profilePictures =[profile1 , profile2 , profile3 , profile4 , profile5 , profile6];
+	const randomProfilePicture = profilePictures[Math.floor(Math.random() * profilePictures.length)];
 
 	// ler base de dados
 
@@ -68,20 +76,29 @@ function Header({ handleSideMenu, setFullWidth }) {
 
 	//registo
 	const signupBehaviour = async(username, password) => {
-    const response = await fetch("http://localhost:3001/api/register", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            username,
-            password
-        })
-    })
+		const response = await fetch("http://localhost:3001/api/register", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				username,
+				password
+			})
 
-    const data = await response.json()
-    console.log(data)
-}
+		
+		})
+
+		const data = await response.json()
+		console.log(data)
+
+		if (response.ok) {
+			setImage(randomProfilePicture)
+        	loginState(); // Fecha o SignUp
+    } else {
+        setLoginMessage(data.message);
+    }
+	}
 
 	return (
 		<>
