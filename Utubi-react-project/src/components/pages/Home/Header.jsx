@@ -27,12 +27,14 @@ function Header({ handleSideMenu, setFullWidth }) {
 		setPassword("")
 	};
 
-	const [visibility, setVisibility] = useState(visibilityOn)
+	const passwordVisible = () =>{
+		const [showPassword, setshowPassword] = useState(true);
 
-	const handleVisibility = () => {
-		setVisibility(visibilityOff)
+		const handleshowPassword = () => {
+		setshowPassword( !showPassword)
+	}} 
+	
 
-	}
 	//Login and SignUp
 	const [showLogin, setLogin] = useState(false);
 	const [showAdminLogin, setAdminLogin] = useState(false);
@@ -182,6 +184,9 @@ function Header({ handleSideMenu, setFullWidth }) {
 						loginBehaviour={loginBehaviour}
 						loginMessage={loginMessage}
 						handleVisibility = {handleVisibility}
+						visibilityOn = {visibilityOn}
+						visibilityOff = {visibilityOff}
+						visibility = {visibility}
 					/>
 				)}
 

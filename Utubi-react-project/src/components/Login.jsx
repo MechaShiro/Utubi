@@ -6,7 +6,7 @@ import VisibilityButton from './VisibilityButton'
 
 
 
-function Login({loginState , setAdminLogin , handleGoBack , username , setUsername, password , setPassword , profiles , adminProfile , getDatabase , loginBehaviour , loginMessage , handleVisibility}){
+function Login({loginState , setAdminLogin , handleGoBack , username , setUsername, password , setPassword , profiles , adminProfile , getDatabase , loginBehaviour , loginMessage , handleVisibility, visibilityOn, visibilityOff , visibility}){
     
     return(
         <>
@@ -18,9 +18,15 @@ function Login({loginState , setAdminLogin , handleGoBack , username , setUserna
                     <input className="username_input" type="text" placeholder="Enter Username" id="username" value={username} onChange={e => setUsername(e.target.value)} ></input>
 
                     <label className="password_label" htmlFor="password"><p>Password</p></label>
-                    <input className="password_input" type="password" placeholder="Enter Username" id="password" value={password} onChange={e => setPassword(e.target.value)} ></input>
-                    <VisibilityButton
-                                handleVisibility = {handleVisibility}/>
+                    <div className='div_password_input'>
+                        <input className="password_input" type="password" placeholder="Enter Username" id="password" value={password} onChange={e => setPassword(e.target.value)} ></input>
+                        <VisibilityButton
+                                    handleVisibility = {handleVisibility,
+                                                        visibilityOn,
+                                                        visibilityOff,
+                                                        visibility
+                                    }/>
+                    </div>
                     
                     {loginMessage && <p>{loginMessage}</p>}
                     <div className="login_ft">
