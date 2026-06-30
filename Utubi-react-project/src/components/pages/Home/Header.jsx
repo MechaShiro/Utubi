@@ -5,6 +5,8 @@ import Login from "../../Login";
 import SignUp from "../../SignUp";
 import SideMenu from "../../SideMenu";
 import noUser from "../../../imgs/profilepics/user_icon.svg";
+import visibilityOn from "../../../imgs/icons/visibility_icon.svg";
+import visibilityOff from "../../../imgs/icons/visibility_off_icon.svg";
 
 import profile1 from "../../../imgs/profilepics/profile1.jpg"
 import profile2 from "../../../imgs/profilepics/profile2.jpg"
@@ -25,6 +27,12 @@ function Header({ handleSideMenu, setFullWidth }) {
 		setPassword("")
 	};
 
+	const [visibility, setVisibility] = useState(visibilityOn)
+
+	const handleVisibility = () => {
+		setVisibility(visibilityOff)
+
+	}
 	//Login and SignUp
 	const [showLogin, setLogin] = useState(false);
 	const [showAdminLogin, setAdminLogin] = useState(false);
@@ -173,6 +181,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 						getDatabase={getDatabase}
 						loginBehaviour={loginBehaviour}
 						loginMessage={loginMessage}
+						handleVisibility = {handleVisibility}
 					/>
 				)}
 
