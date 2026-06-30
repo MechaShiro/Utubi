@@ -21,6 +21,8 @@ function Header({ handleSideMenu, setFullWidth }) {
 		setLogin(false);
 		setSignUp(false);
 		handleToggle();
+		setUsername("");
+		setPassword("")
 	};
 
 	//Login and SignUp

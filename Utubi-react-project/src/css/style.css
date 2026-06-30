@@ -29,6 +29,7 @@ body{
     }
 }
 
+
 button:hover{
         cursor: pointer;
     }
@@ -37,6 +38,11 @@ img{
     width: 100%;
 }
 
+.div_body{
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
 .container{
     
 

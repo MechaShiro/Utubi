@@ -15,7 +15,7 @@ function SignUp( {handleGoBack , profilePictures , username , setUsername, passw
                     <input className="username_input" type="text" placeholder="Enter Username" id="username" value={username} onChange={e => setUsername(e.target.value)}></input>
 
                     <label className="password_label" htmlFor="password"><p>Password</p></label>
-                    <input className="password_input" type="text" placeholder="Enter Username" id="password" value={password} onChange={e => setPassword(e.target.value)}></input>
+                    <input className="password_input" type="password" placeholder="Enter Username" id="password" value={password} onChange={e => setPassword(e.target.value)}></input>
 
                     <div className="signup_ft">
                     <button type="button" className="btn_SignUpBtn" onClick={() => signupBehaviour(username , password)}>Sign Up</button>

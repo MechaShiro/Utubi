@@ -17,7 +17,7 @@ function Login({loginState , setAdminLogin , handleGoBack , username , setUserna
                     <input className="username_input" type="text" placeholder="Enter Username" id="username" value={username} onChange={e => setUsername(e.target.value)} ></input>
 
                     <label className="password_label" htmlFor="password"><p>Password</p></label>
-                    <input className="password_input" type="text" placeholder="Enter Username" id="password" value={password} onChange={e => setPassword(e.target.value)} ></input>
+                    <input className="password_input" type="password" placeholder="Enter Username" id="password" value={password} onChange={e => setPassword(e.target.value)} ></input>
                     {loginMessage && <p>{loginMessage}</p>}
                     <div className="login_ft">
                             <button onClick={() => loginBehaviour(username , password)} type="button" className="btn_LoginBtn">Login</button> 

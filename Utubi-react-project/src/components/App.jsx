@@ -22,14 +22,15 @@ function App(){
                 <Header  
                     handleSideMenu={ handleSideMenu}
                 />
+                <div className='div_body'>
+                    {showSideMenu && 
+                        <SideMenu/>
+                    }
 
-                {showSideMenu && 
-                    <SideMenu/>
-                }
-
-                <VideosGallery 
-                    fullWidth = {showSideMenu}
-                />
+                    <VideosGallery 
+                        fullWidth = {showSideMenu}
+                    />
+                </div>
             </div>
         </>
     )
