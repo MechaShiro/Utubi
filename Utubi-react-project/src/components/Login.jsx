@@ -6,7 +6,23 @@ import VisibilityButton from './VisibilityButton'
 
 
 
-function Login({loginState , setAdminLogin , handleGoBack , username , setUsername, password , setPassword , profiles , adminProfile , getDatabase , loginBehaviour , loginMessage , handleVisibility, visibilityOn, visibilityOff , visibility}){
+function Login({loginState , 
+                setAdminLogin , 
+                handleGoBack , 
+                username , 
+                setUsername, 
+                password , 
+                setPassword , 
+                profiles , 
+                adminProfile , 
+                getDatabase , 
+                loginBehaviour , 
+                loginMessage , 
+                showPassword, 
+                setShowPassword, 
+                visibilityOn, 
+                visibilityOff})
+                {
     
     return(
         <>
@@ -19,13 +35,13 @@ function Login({loginState , setAdminLogin , handleGoBack , username , setUserna
 
                     <label className="password_label" htmlFor="password"><p>Password</p></label>
                     <div className='div_password_input'>
-                        <input className="password_input" type="password" placeholder="Enter Username" id="password" value={password} onChange={e => setPassword(e.target.value)} ></input>
+                        <input className="password_input"   type={showPassword ? "text" : "password"} placeholder="Enter Username" id="password" value={password} onChange={e => setPassword(e.target.value)} ></input>
                         <VisibilityButton
-                                    handleVisibility = {handleVisibility,
-                                                        visibilityOn,
-                                                        visibilityOff,
-                                                        visibility
-                                    }/>
+                                    showPassword={showPassword}
+                                    setShowPassword={setShowPassword}
+                                    visibilityOn={visibilityOn}
+                                    isibilityOff={visibilityOff}
+                        />
                     </div>
                     
                     {loginMessage && <p>{loginMessage}</p>}

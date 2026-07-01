@@ -1,10 +1,24 @@
 import '../css/visibilitybutton.css'
 
-function  VisibilityButton({handleVisibility , visibilityOn , visibilityOff , visibility}){
+function  VisibilityButton({showPassword, 
+                            setShowPassword , 
+                            visibilityOn , 
+                            visibilityOff}){
+
+                                console.log(showPassword);
     return(
         <>
             <div>
-                <button type="button" className ="btn_visibility" onClick={handleVisibility}> <img src= {visibility ? visibilityOn : visibilityOff} ></img></button>
+                <button 
+                        type="button" 
+                        className ="btn_visibility"
+                        onClick = {() => {
+                            setShowPassword(prev => !prev)
+                        }}>
+                <img
+                    src={visibilityOff}
+                    alt="Password visible"/>
+                        </button>
             </div>
         </>
     )
