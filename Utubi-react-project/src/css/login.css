@@ -7,6 +7,13 @@
 
     padding: 10px;
 
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+
+    width: fit-content;
+
     input{
       height: 32px;
       width: calc(192px - 15px);
@@ -17,28 +24,28 @@
       color: var(--primary-bg-color);
 
       padding-left: 15px;
+
+      
     
     }
 
+    .login_container__usernameDiv{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+    }
+
+    .div_password_input{
+      display: flex;
+      gap: 15px;
+    }
+    
     .btn_LoginBtn{
       color: var(--primary-bg-color);
         
       width: 80px;
       height: 50px;
-    }
-
-    .btn_goback{
-      width: 30px;
-      height: 30px;
-
-      background-color: var(--primary-bg-color);
-    }
-
-    .btn_visibility{
-      width: 30px;
-      height: 30px;
-
-      background-color: var(--primary-color);
     }
 
     .login_ft{
@@ -47,6 +54,27 @@
       justify-content: space-around;
 
       width: 100%;
+    }
+
+    .btn_visibility{
+          width: 32px;
+          height: 32px;
+
+          background-color: var(--primary-bg-color);
+        }
+
+    .btn_closeLoginSignUp{
+      width: 32px;
+      height: 32px;
+
+      background-color: var(--primary-bg-color);
+    }
+
+    .btn_goback{
+      width: 32px;
+      height: 32px;
+
+      background-color: var(--primary-bg-color);
     }
     
 }

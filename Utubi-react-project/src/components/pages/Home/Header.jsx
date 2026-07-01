@@ -115,7 +115,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 						<button
 							className="btn_menu"
 							onClick={handleSideMenu}>
-							{" "}
+							
 							<img
 								src="./src/imgs/icons/menu_icon.svg"
 								alt="Menu"></img>
@@ -160,12 +160,12 @@ function Header({ handleSideMenu, setFullWidth }) {
 						showLogin={showLogin}
 						setSignUp={setSignUp}
 						showSignUp={showSignUp}
+						loginState ={loginState}
 					/>
 				)}
 
 				{showLogin && (
 					<Login
-						handleToggle={handleToggle}
 						setLogin={setLogin}
 						showLogin={showLogin}
 						setAdminLogin={setAdminLogin}
@@ -182,6 +182,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 						setShowPassword = {setShowPassword}
 						visibilityOn = {visibilityOn}
 						visibilityOff = {visibilityOff}
+						
 					/>
 				)}
 

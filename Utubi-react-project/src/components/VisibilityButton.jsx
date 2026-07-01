@@ -4,8 +4,6 @@ function  VisibilityButton({showPassword,
                             setShowPassword , 
                             visibilityOn , 
                             visibilityOff}){
-
-                                console.log(showPassword);
     return(
         <>
             <div>
@@ -16,7 +14,7 @@ function  VisibilityButton({showPassword,
                             setShowPassword(prev => !prev)
                         }}>
                 <img
-                    src={visibilityOff}
+                    src={showPassword ? visibilityOff : visibilityOn}
                     alt="Password visible"/>
                         </button>
             </div>

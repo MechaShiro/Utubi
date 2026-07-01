@@ -1,8 +1,10 @@
 
 import '../css/login.css'
 
+import CloseLoginSignUp from './CloseLoginSignUp'
 import GoBackButton from './GoBackButton'
 import VisibilityButton from './VisibilityButton'
+
 
 
 
@@ -29,18 +31,22 @@ function Login({loginState ,
             <div>
             
                 <form className="container login_container">
-
+                    <div className="login_container__usernameDiv">
                     <label className="username_label" htmlFor="username"><p>Username</p></label>
+                    <CloseLoginSignUp 
+                        loginState = {loginState}/>
+                    </div>
+                    
                     <input className="username_input" type="text" placeholder="Enter Username" id="username" value={username} onChange={e => setUsername(e.target.value)} ></input>
 
                     <label className="password_label" htmlFor="password"><p>Password</p></label>
-                    <div className='div_password_input'>
+                    <div className="div_password_input">
                         <input className="password_input"   type={showPassword ? "text" : "password"} placeholder="Enter Username" id="password" value={password} onChange={e => setPassword(e.target.value)} ></input>
                         <VisibilityButton
                                     showPassword={showPassword}
                                     setShowPassword={setShowPassword}
                                     visibilityOn={visibilityOn}
-                                    isibilityOff={visibilityOff}
+                                    visibilityOff={visibilityOff}
                         />
                     </div>
                     

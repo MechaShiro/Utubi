@@ -1,4 +1,6 @@
 .btn_visibility{
-    width: 0;
-    height: 0;
-}
+      width: 30px;
+      height: 30px;
+
+      background-color: var(--primary-bg-color);
+    }

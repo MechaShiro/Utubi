@@ -1,4 +1,3 @@
-import '../css/gobackbutton.css'
 
 function  GoBackButton({handleGoBack}){
     return(
