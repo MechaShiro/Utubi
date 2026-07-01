@@ -27,12 +27,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 		setPassword("")
 	};
 
-	const passwordVisible = () =>{
-		const [showPassword, setshowPassword] = useState(true);
-
-		const handleshowPassword = () => {
-		setshowPassword( !showPassword)
-	}} 
+	const [showPassword , setShowPassword] = useState(false)
 	
 
 	//Login and SignUp
@@ -111,7 +106,7 @@ function Header({ handleSideMenu, setFullWidth }) {
         setLoginMessage(data.message);
     }
 	}
-
+	
 	return (
 		<>
 			<div>
@@ -183,10 +178,10 @@ function Header({ handleSideMenu, setFullWidth }) {
 						getDatabase={getDatabase}
 						loginBehaviour={loginBehaviour}
 						loginMessage={loginMessage}
-						handleVisibility = {handleVisibility}
+						showPassword={showPassword}
+						setShowPassword = {setShowPassword}
 						visibilityOn = {visibilityOn}
 						visibilityOff = {visibilityOff}
-						visibility = {visibility}
 					/>
 				)}
 
@@ -200,6 +195,8 @@ function Header({ handleSideMenu, setFullWidth }) {
 						signupBehaviour = {signupBehaviour}
 					/>
 				)}
+
+				
 			</div>
 		</>
 	);
