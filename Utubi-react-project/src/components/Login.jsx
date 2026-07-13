@@ -1,14 +1,10 @@
-
 import '../css/login.css'
 
-import CloseLoginSignUp from './CloseLoginSignUp'
+import CloseRgtMenus from './CloseRgtMenus'
 import GoBackButton from './GoBackButton'
 import VisibilityButton from './VisibilityButton'
 
-
-
-
-function Login({loginState , 
+function Login({closeRgtMenus , 
                 setAdminLogin , 
                 handleGoBack , 
                 username , 
@@ -33,8 +29,8 @@ function Login({loginState ,
                 <form className="container login_container">
                     <div className="login_container__usernameDiv">
                     <label className="username_label" htmlFor="username"><p>Username</p></label>
-                    <CloseLoginSignUp 
-                        loginState = {loginState}/>
+                    <CloseRgtMenus 
+                        closeRgtMenus = {closeRgtMenus}/>
                     </div>
                     
                     <input className="username_input" type="text" placeholder="Enter Username" id="username" value={username} onChange={e => setUsername(e.target.value)} ></input>
