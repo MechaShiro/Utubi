@@ -23,7 +23,21 @@ function VideosGallery({fullWidth}){
                 <>
                     <div className={fullWidth ? 'divTesteSquare' : 'divTesteSquare2'}>
                         <h1>OI</h1>
-                    </div>
+
+                        <div className='content'>
+                                <img className='content_img_testeTB'></img>
+                                
+                                <div className='content__footer_teste'>
+                                    <img className='profile_img_testeTB'></img>
+                                    <div className='paragraphs__content__footer_teste'>
+                                        <p className='pGrande'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <p className='pMedio'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <p className='pPequeno'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    
                 </>
         )
     };

@@ -8,11 +8,58 @@
 
 .divTesteSquare2{
     width: 100%;
-     height: 400px;
+    height: 400px;
 
     background-color: red;
 
     position: absolute;
     right: 0;
     top: 108px;
+}
+
+.content{
+    width: 380px;
+    height: fit-content;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+
+    transition: background-color .5s;
+    border-radius: var(--primary-borderRadius);
+
+}
+
+.content:hover{
+        cursor: pointer;
+        background-color: #00000034;
+        
+    }
+
+.content_img_testeTB{
+    width: 360px;
+    height: 208px;
+    
+    background-color: black;
+    border-radius: var(--primary-borderRadius);
+}
+
+.content__footer_teste{
+    display: flex;
+    gap: 15px;
+    .profile_img_testeTB{
+        width: 52px;
+        height: 52px;
+        background-color: white;
+        border-radius: 50%;
+    }
+}
+
+.pMedio{
+    font-size: 14px;
+}
+
+.pPequeno{
+    font-size: 14px;
 }

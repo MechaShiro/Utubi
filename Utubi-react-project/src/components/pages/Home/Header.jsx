@@ -35,7 +35,8 @@ function Header({ handleSideMenu, setFullWidth }) {
 	const [showAdminLogin, setAdminLogin] = useState(false);
 	const [showSignUp, setSignUp] = useState(false);
 	const [loginMessage, setLoginMessage] = useState("");
-	const loginState = () => {
+
+	const closeRgtMenus = () => {
 		setLogin(false);
 		setSignUp(false);
 		setToggle(false);
@@ -73,7 +74,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 			setImage(user.image ? `/profilepics/${String(user.image).trim()}` : noUser);
 			setUsername("");
 			setPassword("");
-			loginState();
+			closeRgtMenus();
 			console.log("bem vindo admin")
 		} catch (error) {
 			console.error(error);
@@ -101,7 +102,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 
 		if (response.ok) {
 			setImage(randomProfilePicture)
-        	loginState(); // Fecha o SignUp
+    		closeRgtMenus(); // Fecha o SignUp
     } else {
         setLoginMessage(data.message);
     }
@@ -160,7 +161,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 						showLogin={showLogin}
 						setSignUp={setSignUp}
 						showSignUp={showSignUp}
-						loginState ={loginState}
+						closeRgtMenus ={closeRgtMenus}
 					/>
 				)}
 
@@ -170,7 +171,7 @@ function Header({ handleSideMenu, setFullWidth }) {
 						showLogin={showLogin}
 						setAdminLogin={setAdminLogin}
 						handleGoBack={handleGoBack}
-						loginState={loginState}
+						closeRgtMenus={closeRgtMenus}
 						username={username}
 						setUsername={setUsername}
 						password={password}
@@ -194,6 +195,11 @@ function Header({ handleSideMenu, setFullWidth }) {
 						password={password}
 						setPassword={setPassword}
 						signupBehaviour = {signupBehaviour}
+						closeRgtMenus = {closeRgtMenus}
+						showPassword={showPassword}
+						setShowPassword = {setShowPassword}
+						visibilityOn = {visibilityOn}
+						visibilityOff = {visibilityOff}
 					/>
 				)}
 
