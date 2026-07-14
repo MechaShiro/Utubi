@@ -7,7 +7,10 @@ import Header from './pages/Home/Header'
 import SideMenu from './SideMenu'
 import VideosGallery from './VideosGallery'
 
+import { fetchVideos } from '../api/youtube'
+
 function App(){
+
 
     const[showSideMenu, setSideMenu] = useState(true);
 
@@ -19,6 +22,7 @@ function App(){
     return(
         <>
             <div>
+                
                 <Header  
                     handleSideMenu={ handleSideMenu}
                 />
