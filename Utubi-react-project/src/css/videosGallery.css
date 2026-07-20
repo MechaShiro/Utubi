@@ -3,21 +3,19 @@
     width: calc(100% - 250px);
     height: 400px;
 
-    background-color: purple;
+    background-color: var(--primary-bg-color);
 }
 
 .divTesteSquare2{
     width: 100%;
     height: 400px;
 
-    background-color: red;
-
     position: absolute;
     right: 0;
     top: 108px;
 }
 
-.content{
+.card{
     width: 380px;
     height: fit-content;
     padding: 15px;
@@ -25,41 +23,74 @@
     flex-direction: column;
     gap: 15px;
     align-items: center;
-
+    
     transition: background-color .5s;
     border-radius: var(--primary-borderRadius);
 
 }
 
-.content:hover{
+.card:hover{
         cursor: pointer;
         background-color: #00000034;
         
     }
 
-.content_img_testeTB{
-    width: 360px;
+.card_thumbnail{
+    width: 380px;
     height: 208px;
     
     background-color: black;
     border-radius: var(--primary-borderRadius);
 }
 
-.content__footer_teste{
+.card_footer{
     display: flex;
+    align-items: center;
     gap: 15px;
-    .profile_img_testeTB{
-        width: 52px;
-        height: 52px;
+}
+
+.card_footer___profilePic{
+        width: 36px;
+        height: 36px;
         background-color: white;
         border-radius: 50%;
     }
+
+.card_footer___text p {
+    text-align: left;
 }
 
-.pMedio{
+.card_footer___text__title{
     font-size: 14px;
 }
 
-.pPequeno{
-    font-size: 14px;
+.card_footer___text__channel{
+    font-size: 12px;
 }
+
+.card_footer___text__views{
+    font-size: 10px;
+}
+
+.card_footer__btns{
+    display: flex;
+    align-items: center;
+        button {
+            background-color: var(--secondary-bg-color);
+        }
+}
+.card_footer__btns__like{
+    border-top-left-radius:var(--primary-borderRadius);
+    border-bottom-left-radius:var(--primary-borderRadius);
+}
+.card_footer__btns__like img{
+        width: 22px;
+        height: 22px;}
+
+.card_footer__btns__dislike{
+    border-top-right-radius:var(--primary-borderRadius);
+    border-bottom-right-radius:var(--primary-borderRadius);
+}
+.card_footer__btns__dislike img{
+        width: 22px;
+        height: 22px;}
