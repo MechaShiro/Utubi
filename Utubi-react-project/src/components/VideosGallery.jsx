@@ -22,10 +22,13 @@ function VideosGallery({fullWidth , videos}){
                                         src={video.snippet.thumbnails.high.url}></img>
                                     <div className='card_footer___text'> 
                                         <p className='card_footer___text__title' >
-                                            {video.snippet.description}
+                                            {video.snippet.title}
                                         </p>
-                                        <p className='card_footer___text__channel'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                        <p className='card_footer___text__views'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <p className='card_footer___text__channel'>
+                                            {video.snippet.channelTitle}
+                                        </p>
+                                        <p className='card_footer___text__views'>
+                                            {video.statistics.viewCount} views</p>
                                     </div>
                                 </div>
                         </div>
