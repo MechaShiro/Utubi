@@ -13,6 +13,7 @@ export async function fetchVideos() {
         const data = await response.json();
 
         console.log(data);
+        return data.items;
     }
     catch(error){
         console.log(error);
@@ -20,6 +21,3 @@ export async function fetchVideos() {
     
 }
 
-console.log(API_KEY);
-
-fetchVideos();

@@ -11,6 +11,11 @@ import { fetchVideos } from '../api/youtube'
 
 function App(){
 
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetchVideos().then(setVideos);
+    }, []);
 
     const[showSideMenu, setSideMenu] = useState(true);
 
@@ -30,9 +35,10 @@ function App(){
                     {showSideMenu && 
                         <SideMenu/>
                     }
-
+                    
                     <VideosGallery 
                         fullWidth = {showSideMenu}
+                        videos={videos}
                     />
                 </div>
             </div>
