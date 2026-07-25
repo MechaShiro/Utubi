@@ -55,10 +55,11 @@ function Header({ handleSideMenu, setFullWidth }) {
 
 	const getDatabase = async () => {
 		const response = await fetch(USERS_API_URL);
+		
 		if (!response.ok) {
 			throw new Error(`Falha ao obter utilizadores : ${response.status}`);
 		}
-		return response.json();
+		return await response.json();
 	};
 
 	//login
@@ -66,6 +67,9 @@ function Header({ handleSideMenu, setFullWidth }) {
 		setLoginMessage("");
 		try {
 			const database = await getDatabase();
+			console.log(database);
+			console.log(USERS_API_URL)
+			console.log(database[0]);
 			const user = database.find((item) => item.username === username && item.password === password && item.image === image);
 			if (!user) {
 				setLoginMessage("Username incorrecto");

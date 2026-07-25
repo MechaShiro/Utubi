@@ -12,12 +12,14 @@ const csvPath = path.resolve(__dirname, "../public/database/database.csv")
 
 async function readCSV() {
     await access(csvPath)
-    const text = await readFile(csvPath , `utf8`)
-    const lines = text.trim().split("\n")
-    const headers = lines[0].split(",")
+    const text = await readFile(csvPath , `utf8`);
+   
+    const lines =  text.split(/\r?\n/).filter(line => line.trim() !== "");
+    
+    const headers = lines[0].split(",").map(h => h.trim());
 
     return lines.slice(1).map((line) => {
-				const values = line.split(",");
+				const values = line.split(",").map(v => v.replace(/\r/g, "").trim());
 				return Object.fromEntries(headers.map((a , b) => [a,values[b] ?? ``]));
 			});
 }
@@ -56,7 +58,7 @@ async function registerUser(username, password) {
 }
 
 // Endpoints
-app.get(`/api/users` , async (req , res) => {
+app.get("/api/users" , async (req , res) => {
     try {
         const rows = await readCSV()
         return res.json(rows)
