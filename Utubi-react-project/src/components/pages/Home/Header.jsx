@@ -69,6 +69,8 @@ function Header({ handleSideMenu, setFullWidth }) {
 			const user = database.find((item) => item.username === username && item.password === password && item.image === image);
 			if (!user) {
 				setLoginMessage("Username incorrecto");
+				console.log(loginBehaviour)
+				console.log(username , password)
 				return;
 			}
 			setImage(user.image ? `/profilepics/${String(user.image).trim()}` : noUser);
