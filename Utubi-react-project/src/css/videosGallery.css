@@ -1,9 +1,13 @@
+
+p{
+    color: var(--primary-color);
+}
+
 .divTesteSquare{
 
     width: calc(100% - 250px);
     height: 400px;
-
-    background-color: var(--primary-bg-color);
+    
 }
 
 .divTesteSquare2{
@@ -15,6 +19,13 @@
     top: 108px;
 }
 
+
+.cardsDisplay{
+    display: flex;
+    justify-content: space-between;
+    overflow-y:auto
+}
+
 .card{
     width: 380px;
     height: fit-content;
@@ -22,7 +33,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: center;
+    align-items: left;
     
     transition: background-color .5s;
     border-radius: var(--primary-borderRadius);
@@ -32,7 +43,6 @@
 .card:hover{
         cursor: pointer;
         background-color: #00000034;
-        
     }
 
 .card_thumbnail{
@@ -94,3 +104,31 @@
 .card_footer__btns__dislike img{
         width: 22px;
         height: 22px;}
+
+
+.smallerH2{
+    color: var(--primary-color);
+    margin: 15px 0 5px 5px;
+}
+.smallersDisplay{
+    display: flex;
+}
+.shortcard{
+    height: 400px;
+    width: 250px;
+
+    border-radius: var(--primary-borderRadius);
+
+    padding: 5px;
+    transition: background-color .5s;
+    border-radius: var(--primary-borderRadius);
+}
+
+.shortcard:hover{
+        cursor: pointer;
+        background-color: #00000034;
+    }
+
+.shortcard_thumbnail{
+    border-radius: var(--primary-borderRadius);
+}

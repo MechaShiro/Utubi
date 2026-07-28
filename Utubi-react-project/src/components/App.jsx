@@ -8,15 +8,20 @@ import SideMenu from './SideMenu'
 import VideosGallery from './VideosGallery'
 
 import { fetchVideos } from '../api/youtube'
+import { fetchSmallers } from '../api/youtube'
 
 function App(){
 
     const [videos, setVideos] = useState([]);
-
     useEffect(() => {
         fetchVideos().then(setVideos);
     }, []);
-
+    
+    const [smallers, setSmallers] = useState([]);
+    useEffect(() => {
+        fetchSmallers().then(setSmallers);
+    }, []);
+    
     const[showSideMenu, setSideMenu] = useState(true);
 
     const handleSideMenu = () => (
@@ -39,6 +44,7 @@ function App(){
                     <VideosGallery 
                         fullWidth = {showSideMenu}
                         videos={videos}
+                        smallers={smallers}
                     />
                 </div>
             </div>
