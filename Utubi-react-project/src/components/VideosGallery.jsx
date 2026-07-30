@@ -1,13 +1,13 @@
 import '../css/videosGallery.css'
 
-function VideosGallery({fullWidth , videos , smallers}){
+function VideosGallery({showSideMenu , videos , smallers}){
 
         return(
                 <>
-                    <div className={fullWidth ? 'divTesteSquare' : 'divTesteSquare2'}>
-                        
+                    <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
+                        <h2 className='smallerH2' id='smallerH2'>Videos</h2>
                                 <div className="cardsDisplay">
-                                    {videos.map((video) => (
+                                    {(showSideMenu ? videos.slice(0, 3) : videos).map((video) => (
                                         <div className='card'> 
                                                 <img 
                                                     className='card_thumbnail'
@@ -35,7 +35,7 @@ function VideosGallery({fullWidth , videos , smallers}){
                                 <h2 className='smallerH2' id='smallerH2'>Smallers</h2>
                                 <div className='smallersDisplay'>
                                     
-                                    {smallers.map(video => (
+                                    {(showSideMenu ? smallers.slice(0, 5) : smallers).map(video => (
                                         <div className='shortcard'>
                                             <img
                                                 className='shortcard_thumbnail'

@@ -4,7 +4,7 @@ const BASE_URL = "https://www.googleapis.com/youtube/v3";
 export async function fetchVideos() {
 
     try{
-        const response = await fetch(`${BASE_URL}/videos?part=snippet,statistics&chart=mostPopular&maxResults=3&regionCode=PT&key=${API_KEY}`);
+        const response = await fetch(`${BASE_URL}/videos?part=snippet,statistics&chart=mostPopular&maxResults=4&regionCode=PT&key=${API_KEY}`);
 
         if (!response.ok) {
             throw new Error("Erro ao obter os vídeos populares.");
@@ -45,8 +45,6 @@ export async function fetchSmallers(){
         const response2 = await fetch(
             `${BASE_URL}/videos?part=snippet,statistics,contentDetails&id=${ids}&key=${API_KEY}`
         );
-
-
         const videos = await response2.json();
         
         function durationToSeconds(duration) {
@@ -59,7 +57,7 @@ export async function fetchSmallers(){
         return hours * 3600 + minutes * 60 + seconds;
         }
 
-        const smallers = videos.items.filter(video => durationToSeconds(video.contentDetails.duration) <= 60).slice(0, 5);
+        const smallers = videos.items.filter(video => durationToSeconds(video.contentDetails.duration) <= 60).slice(0, 6);
         console.log(smallers);
         return smallers;
 

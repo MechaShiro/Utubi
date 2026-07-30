@@ -42,7 +42,7 @@ function App(){
                     }
                     
                     <VideosGallery 
-                        fullWidth = {showSideMenu}
+                        showSideMenu = {showSideMenu}
                         videos={videos}
                         smallers={smallers}
                     />
