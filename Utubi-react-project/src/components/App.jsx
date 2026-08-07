@@ -23,7 +23,6 @@ function App(){
     }, []);
     
     const[showSideMenu, setSideMenu] = useState(true);
-
     const handleSideMenu = () => (
         setSideMenu(!showSideMenu)
     );
@@ -36,6 +35,7 @@ function App(){
                 <Header  
                     handleSideMenu={ handleSideMenu}
                 />
+                
                 <div className='div_body'>
                     {showSideMenu && 
                         <SideMenu/>
@@ -47,6 +47,7 @@ function App(){
                         smallers={smallers}
                     />
                 </div>
+
             </div>
         </>
     )
