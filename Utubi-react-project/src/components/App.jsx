@@ -9,6 +9,7 @@ import VideosGallery from './VideosGallery'
 
 import { fetchVideos } from '../api/youtube'
 import { fetchSmallers } from '../api/youtube'
+import { searchVideos } from '../api/youtube'
 
 function App(){
 
@@ -27,6 +28,11 @@ function App(){
         setSideMenu(!showSideMenu)
     );
 
+    const [search , setSearch] = useState("")
+    function handleSearchValue(e){
+        setSearch(e.target.value)
+        console.log(search)
+    }
 
     return(
         <>
@@ -34,6 +40,9 @@ function App(){
                 
                 <Header  
                     handleSideMenu={ handleSideMenu}
+                    search = {search}
+                    searchVideos = {searchVideos}
+                    handleSearchValue = {handleSearchValue}
                 />
                 
                 <div className='div_body'>

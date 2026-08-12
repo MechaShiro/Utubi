@@ -15,7 +15,11 @@ import profile4 from "../../../imgs/profilepics/profile4.png"
 import profile5 from "../../../imgs/profilepics/profile5.jpg"
 import profile6 from "../../../imgs/profilepics/profile6.jpg"
 
-function Header({ handleSideMenu, setFullWidth }) {
+function Header({ 	handleSideMenu, 
+					setFullWidth ,
+					search,
+					searchVideos ,
+					handleSearchValue}) {
 	const [toggle, setToggle] = useState(false);
 	const handleToggle = () => setToggle(!toggle);
 
@@ -132,11 +136,13 @@ function Header({ handleSideMenu, setFullWidth }) {
 
 					<form>
 						<input
+							onChange = {handleSearchValue}
 							type="search"
 							id="x"></input>
 						<button
 							type="submit"
-							className="btn_search">
+							className="btn_search"
+							onClick = {searchVideos(search)}>
 							<img
 								src="./src/imgs/icons/search_icon.svg"
 								alt="Search Button"></img>

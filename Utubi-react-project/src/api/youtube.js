@@ -13,6 +13,7 @@ export async function fetchVideos() {
         const data = await response.json();
 
         console.log(data);
+        
         return data.items;
     }
     catch(error){
@@ -65,5 +66,26 @@ export async function fetchSmallers(){
     }
     catch(error){
         console.log(error);
+    }
+}
+
+export async function searchVideos(params) {
+
+    try {
+        const response = await fetch(
+            `${BASE_URL}/search?part=snippet&type=video&maxResults=10&q=${encodeURIComponent(params)}&regionCode=PT&key=${API_KEY}`
+        );
+
+        if (!response.ok) {
+            throw new Error("Erro ao pesquisar videos");
+        }
+
+        const data = await response.json();
+
+        console.log(data);
+    }
+
+    catch(error){
+        console.log(error)
     }
 }
