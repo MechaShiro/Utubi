@@ -142,7 +142,8 @@ function Header({ 	handleSideMenu,
 						<button
 							type="submit"
 							className="btn_search"
-							onClick = {searchVideos(search)}>
+							onClick = {(e)=> {	e.preventDefault();
+												searchVideos(search)}}>
 							<img
 								src="./src/imgs/icons/search_icon.svg"
 								alt="Search Button"></img>
