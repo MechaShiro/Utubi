@@ -1,6 +1,8 @@
 import '../css/videosGallery.css'
 
-function VideosGallery({showSideMenu , videos , smallers}){
+function VideosGallery({showSideMenu , 
+                        videos , 
+                        smallers}){
 
         return(
                 <>
