@@ -54,6 +54,7 @@ function App(){
                         showSideMenu = {showSideMenu}
                         videos={videos}
                         smallers={smallers}
+                        search = {search}
                     />
                 </div>
 

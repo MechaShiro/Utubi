@@ -83,6 +83,7 @@ export async function searchVideos(params) {
         const data = await response.json();
 
         console.log(data);
+        return data.items
     }
 
     catch(error){
