@@ -55,6 +55,7 @@ function App(){
                         videos={videos}
                         smallers={smallers}
                         search = {search}
+                        searchVideos = {searchVideos }
                     />
                 </div>
 

@@ -136,13 +136,13 @@ function Header({ 	handleSideMenu,
 
 					<form>
 						<input
-							onChange = {handleSearchValue}
 							type="search"
 							id="x"></input>
 						<button
 							type="submit"
 							className="btn_search"
 							onClick = {(e)=> {	e.preventDefault();
+												handleSearchValue(e);
 												searchVideos(search)}}>
 							<img
 								src="./src/imgs/icons/search_icon.svg"

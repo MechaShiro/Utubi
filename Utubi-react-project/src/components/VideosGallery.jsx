@@ -3,18 +3,17 @@ import '../css/videosGallery.css'
 function VideosGallery({showSideMenu , 
                         videos , 
                         smallers ,
-                        search}){
+                        search ,
+                        searchVideos }){
 
         return(
                 <>
                     <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
                         <h2 className='smallerH2' id='smallerH2'>Videos</h2>
                                 <div className="cardsDisplay">
-                                    {(search === "" ? 
-                                        (showSideMenu ? 
-                                            videos.slice(0, 3) 
-                                            : videos)
-                                        :console.log(search))
+                                    {(searchVideos === "" ? 
+                                        (showSideMenu ? videos.slice(0, 3) : videos)
+                                        :searchVideos)
                                             .map((video) => (
                                                 <div className='card'> 
                                                         <img 
@@ -35,10 +34,10 @@ function VideosGallery({showSideMenu ,
                                                                 <p className='card_footer___text__views'>
                                                                     {video.statistics.viewCount} views</p>
                                                             </div>
+                                                        </div>
                                                 </div>
-                                            </div>
                                         ))}
-                                        </div>
+                                </div>
 
                                 <h2 className='smallerH2' id='smallerH2'>Smallers</h2>
                                 <div className='smallersDisplay'>
