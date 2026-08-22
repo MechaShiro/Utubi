@@ -19,7 +19,8 @@ function Header({ 	handleSideMenu,
 					setFullWidth ,
 					search,
 					searchVideos ,
-					handleSearchValue}) {
+					handleSearchValue ,
+					handleSearchResults}) {
 	const [toggle, setToggle] = useState(false);
 	const handleToggle = () => setToggle(!toggle);
 
@@ -134,16 +135,15 @@ function Header({ 	handleSideMenu,
 						<h1>Utubi</h1>
 					</div>
 
-					<form>
+					<form onSubmit={handleSearchResults}>
 						<input
+							value={search}
+							onChange={(e) => handleSearchValue(e)}
 							type="search"
 							id="x"></input>
 						<button
 							type="submit"
-							className="btn_search"
-							onClick = {(e)=> {	e.preventDefault();
-												handleSearchValue(e);
-												searchVideos(search)}}>
+							className="btn_search">
 							<img
 								src="./src/imgs/icons/search_icon.svg"
 								alt="Search Button"></img>

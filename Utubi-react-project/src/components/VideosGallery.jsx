@@ -11,10 +11,8 @@ function VideosGallery({showSideMenu ,
                     <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
                         <h2 className='smallerH2' id='smallerH2'>Videos</h2>
                                 <div className="cardsDisplay">
-                                    {(searchVideos === "" ? 
-                                        (showSideMenu ? videos.slice(0, 3) : videos)
-                                        :searchVideos)
-                                            .map((video) => (
+                                    {search === "" && 
+                                        (showSideMenu ? videos.slice(0, 3) : videos).map((video) => (
                                                 <div className='card'> 
                                                         <img 
                                                             className='card_thumbnail'

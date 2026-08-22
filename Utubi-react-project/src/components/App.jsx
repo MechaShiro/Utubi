@@ -28,11 +28,25 @@ function App(){
         setSideMenu(!showSideMenu)
     );
 
-    const [search , setSearch] = useState("")
-    function handleSearchValue(e){
+    /** SearchBar **/
+    const [search , setSearch] = useState("");
+    const[searchResults , setSearchResults] = useState([]);
+    const handleSearchValue = async (e) => {
         setSearch(e.target.value)
-        console.log(search)
+    };
+    const handleSearchResults = async (e) =>{
+         console.log("PESQUISA FOI CHAMADA");
+        e.preventDefault();
+        if(search.trim() === ""){
+            setSearchResults([]);
+            return;
+        }
+
+        const results = await searchVideos(search);
+        setSearchResults(results)
+        console.log(searchResults)
     }
+    
 
     return(
         <>
@@ -43,6 +57,7 @@ function App(){
                     search = {search}
                     searchVideos = {searchVideos}
                     handleSearchValue = {handleSearchValue}
+                    handleSearchResults = {handleSearchResults}
                 />
                 
                 <div className='div_body'>
