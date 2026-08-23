@@ -4,14 +4,18 @@ function VideosGallery({showSideMenu ,
                         videos , 
                         smallers ,
                         search ,
-                        searchVideos }){
+                        searchVideos ,
+                        handleSearchResults ,
+                        setSearchResults ,
+                        searchResults }){
 
         return(
                 <>
                     <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
-                        <h2 className='smallerH2' id='smallerH2'>Videos</h2>
+                        <h2 className='smallerH2' id='smallerH2'>
+                            {searchResults.length === 0 ? "Videos" : search}</h2>
                                 <div className="cardsDisplay">
-                                    {search === "" && 
+                                    {searchResults.length === 0 && 
                                         (showSideMenu ? videos.slice(0, 3) : videos).map((video) => (
                                                 <div className='card'> 
                                                         <img 

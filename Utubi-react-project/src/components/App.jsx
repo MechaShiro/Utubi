@@ -35,7 +35,7 @@ function App(){
         setSearch(e.target.value)
     };
     const handleSearchResults = async (e) =>{
-         console.log("PESQUISA FOI CHAMADA");
+        console.log("PESQUISA FOI CHAMADA");
         e.preventDefault();
         if(search.trim() === ""){
             setSearchResults([]);
@@ -44,7 +44,8 @@ function App(){
 
         const results = await searchVideos(search);
         setSearchResults(results)
-        console.log(searchResults)
+        console.log(results)
+        
     }
     
 
@@ -71,6 +72,9 @@ function App(){
                         smallers={smallers}
                         search = {search}
                         searchVideos = {searchVideos }
+                        handleSearchResults = {handleSearchResults}
+                        setSearchResults = {setSearchResults}
+                        searchResults = {searchResults}
                     />
                 </div>
 
