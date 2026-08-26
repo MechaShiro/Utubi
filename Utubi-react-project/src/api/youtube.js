@@ -73,7 +73,7 @@ export async function searchVideos(params) {
 
     try {
         const response = await fetch(
-            `${BASE_URL}/search?part=snippet&type=video&maxResults=10&q=${encodeURIComponent(params)}&regionCode=PT&key=${API_KEY}`
+            `${BASE_URL}/search?part=snippet&type=video&maxResults=5&q=${encodeURIComponent(params)}&regionCode=PT&key=${API_KEY}`
         );
 
         if (!response.ok) {

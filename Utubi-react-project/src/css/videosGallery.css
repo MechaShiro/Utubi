@@ -7,6 +7,7 @@ p{
 
     width: calc(100% - 250px);
     height: 400px;
+    flex-shrink: 1;
     
 }
 
@@ -39,6 +40,8 @@ p{
     border-radius: var(--primary-borderRadius);
 
 }
+
+
 
 .card:hover{
         cursor: pointer;

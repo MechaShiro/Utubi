@@ -5,6 +5,7 @@
     height: calc(100vh - 108px);
 
     padding-top: 15px;
+    flex-shrink: 0;
 }
 
 .ul_SideMenu{

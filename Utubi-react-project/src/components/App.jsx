@@ -28,8 +28,9 @@ function App(){
         setSideMenu(!showSideMenu)
     );
 
-    /** SearchBar **/
+    //SearchBar
     const [search , setSearch] = useState("");
+    const [h2search , setH2Search] = useState("");
     const[searchResults , setSearchResults] = useState([]);
     const handleSearchValue = async (e) => {
         setSearch(e.target.value)
@@ -37,6 +38,7 @@ function App(){
     const handleSearchResults = async (e) =>{
         console.log("PESQUISA FOI CHAMADA");
         e.preventDefault();
+        setH2Search(search);
         if(search.trim() === ""){
             setSearchResults([]);
             return;
@@ -75,6 +77,7 @@ function App(){
                         handleSearchResults = {handleSearchResults}
                         setSearchResults = {setSearchResults}
                         searchResults = {searchResults}
+                        h2search = {h2search}
                     />
                 </div>
 
