@@ -1,11 +1,12 @@
 .div_SideMenu{
-    background-color: var(--secondary-bg-color);
-    
-    width: 250px;
-    height: calc(100vh - 108px);
+    background-color: var(--primary-bg-color);
 
-    padding-top: 15px;
+    width: 250px;
     flex-shrink: 0;
+
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
 }
 
 .ul_SideMenu{

@@ -3,19 +3,18 @@ import '../css/videosGallery.css'
 function VideosGallery({showSideMenu , 
                         videos , 
                         smallers ,
-                        search ,
-                        searchVideos ,
-                        handleSearchResults ,
-                        setSearchResults ,
                         searchResults ,
                         h2search  }){
 
         return(
                 <>
                     <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
+
                         <h2 className='smallerH2' id='smallerH2'>
-                            {searchResults.length === 0 ? "Videos" : `" ${h2search} "` }</h2>
-                                <div className="cardsDisplay">
+                            {searchResults.length === 0 ? "Top Videos ✨" : `" ${h2search} "` }</h2>
+
+                                <div className={searchResults.length === 0 ? 'cardsDisplay' : 'cardsSearchDisplay'}>
+
                                     {searchResults.length === 0 ? 
                                         (showSideMenu ? videos.slice(0, 3) : videos).map((video) => (
                                                 <div className='card'> 
@@ -40,7 +39,7 @@ function VideosGallery({showSideMenu ,
                                                         </div>
                                                 </div>
                                         ))
-                                        :(showSideMenu ? searchResults.slice(0 , 3) : searchResults).map((video) =>(<div className='card card_search'> 
+                                        :(searchResults).map((video) =>(<div className='card_searchDisplay'> 
                                                         <img 
                                                             className='card_thumbnail'
                                                             src={video.snippet.thumbnails.high.url}></img> 
@@ -62,7 +61,7 @@ function VideosGallery({showSideMenu ,
                                                 </div>))}
                                 </div>
 
-                                <h2 className='smallerH2' id='smallerH2'>Smallers</h2>
+                                <h2 className='smallerH2' id='smallerH2'>Smallers 🤏</h2>
                                 <div className='smallersDisplay'>
                                     
                                     {(showSideMenu ? smallers.slice(0, 5) : smallers).map(video => (

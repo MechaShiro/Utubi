@@ -9,8 +9,8 @@
 }
 
 *{
-  margin: 0;
-  padding: 0;
+margin: 0;
+padding: 0;
 }
 
 body{
@@ -44,8 +44,11 @@ img{
 .div_body{
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    background: red;
     min-height: calc(100vh - 108px);
-    align-items: stretch;
+    height: auto;
 }
 
 .container{
