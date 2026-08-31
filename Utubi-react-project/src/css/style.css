@@ -46,7 +46,6 @@ img{
     flex-direction: row;
     align-items: flex-start;
     width: 100%;
-    background: red;
     min-height: calc(100vh - 108px);
     height: auto;
 }

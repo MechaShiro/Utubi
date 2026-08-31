@@ -12,7 +12,7 @@ p{
 }
 
 .notShowSideMenu{
-     width: 100%;
+    width: 100%;
     flex: 1;
     min-width: 0;
 }
