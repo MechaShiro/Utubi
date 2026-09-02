@@ -122,7 +122,7 @@ function Header({ 	handleSideMenu,
 	return (
 		<>
 			<div>
-				<header>
+				<header id="header">
 					<div className="subDiv">
 						<button
 							className="btn_menu"

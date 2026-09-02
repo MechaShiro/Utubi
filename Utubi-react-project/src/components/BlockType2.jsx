@@ -2,6 +2,7 @@ import '../css/blockType1.css';
 import '../css/blockType2.css'
 
 function BlockType2(props){
+    
         return(
                 <>
                     <div className="div_BlockType1 div_BlockType2">

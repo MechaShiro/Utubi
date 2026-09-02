@@ -8,11 +8,14 @@ import BlockType1 from './BlockType1';
 import BlockType2 from './BlockType2';
 
     function SideMenu(){
+        const goToTop = () => {
+        document.getElementById("header")?.scrollIntoView( {behavior : "smooth"})
+        }
         return(
                 <>
                     <div className="div_SideMenu">
                         <ul className="ul_SideMenu">
-                            <BlockType1  source = {home} title="Home"/>
+                            <BlockType1  source = {home} title="Home" onClick ={goToTop}/>
 
                             <BlockType1  source = {smallers} title="Smallers"/>
 
