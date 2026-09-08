@@ -20,7 +20,8 @@ function Header({ 	handleSideMenu,
 					search,
 					searchVideos ,
 					handleSearchValue ,
-					handleSearchResults}) {
+					handleSearchResults ,
+					setHomePage }) {
 	const [toggle, setToggle] = useState(false);
 	const handleToggle = () => setToggle(!toggle);
 
@@ -135,7 +136,7 @@ function Header({ 	handleSideMenu,
 						<h1>Utubi</h1>
 					</div>
 
-					<form onSubmit={handleSearchResults}>
+					<form onSubmit={handleSearchResults }>
 						<input
 							value={search}
 							onChange={(e) => handleSearchValue(e)}

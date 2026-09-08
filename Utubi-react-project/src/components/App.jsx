@@ -28,6 +28,8 @@ function App(){
         setSideMenu(!showSideMenu)
     );
 
+   const[topButton , setTopButton] = useState(false);
+
     //SearchBar
     const [search , setSearch] = useState("");
     const [h2search , setH2Search] = useState("");
@@ -62,11 +64,16 @@ function App(){
                     searchVideos = {searchVideos}
                     handleSearchValue = {handleSearchValue}
                     handleSearchResults = {handleSearchResults}
+                    setHomePage = {setHomePage}
                 />
                 
                 <div className='div_body'>
                     {showSideMenu && 
-                        <SideMenu/>
+                        <SideMenu
+                            setSearchResults = {setSearchResults}
+                            setSearch = {setSearch}
+                            homePage = {homePage}
+                            setHomePage = {setHomePage}/>
                     }
                     
                     <VideosGallery 
@@ -79,6 +86,7 @@ function App(){
                         setSearchResults = {setSearchResults}
                         searchResults = {searchResults}
                         h2search = {h2search}
+                        
                     />
                 </div>
 

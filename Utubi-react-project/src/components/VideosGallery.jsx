@@ -10,6 +10,8 @@ function VideosGallery({showSideMenu ,
                 <>
                     <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
 
+                        <button className='buttonTop'>d</button>
+
                         <h2 className='smallerH2' id='H2VideosDisplay'>
                             {searchResults.length === 0 ? "Top Videos ✨" : `" ${h2search} "` }</h2>
 

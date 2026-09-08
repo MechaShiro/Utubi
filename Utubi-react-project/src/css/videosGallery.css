@@ -17,6 +17,9 @@ p{
     min-width: 0;
 }
 
+.buttonTop{
+    display: none;
+}
 
 .cardsDisplay{
     display: flex;
