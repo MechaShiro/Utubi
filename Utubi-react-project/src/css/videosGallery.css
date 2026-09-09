@@ -19,6 +19,8 @@ p{
 
 .buttonTop{
     display: none;
+    position: sticky;
+    top: 0;
 }
 
 .cardsDisplay{

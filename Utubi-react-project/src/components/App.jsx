@@ -27,8 +27,22 @@ function App(){
     const handleSideMenu = () => (
         setSideMenu(!showSideMenu)
     );
-
-   const[topButton , setTopButton] = useState(false);
+    
+    //Scroll_TopButton
+    const[topButton , setTopButton] = useState(false);
+    useEffect(() => {
+        const targetScroll = document.documentElement.scrollHeight * 0.40;
+        const handleTopButton = () => {
+            if( window.scrollY >= targetScroll){
+                setTopButton(true)
+                console.log("deu")
+            } else {
+                setTopButton(false);
+            }
+        }
+        window.addEventListener('scroll', handleTopButton);
+        return () => window.removeEventListener('scroll', handleTopButton);
+    }, []);
 
     //SearchBar
     const [search , setSearch] = useState("");
@@ -64,7 +78,7 @@ function App(){
                     searchVideos = {searchVideos}
                     handleSearchValue = {handleSearchValue}
                     handleSearchResults = {handleSearchResults}
-                    setHomePage = {setHomePage}
+                    
                 />
                 
                 <div className='div_body'>
@@ -72,8 +86,7 @@ function App(){
                         <SideMenu
                             setSearchResults = {setSearchResults}
                             setSearch = {setSearch}
-                            homePage = {homePage}
-                            setHomePage = {setHomePage}/>
+                            />
                     }
                     
                     <VideosGallery 
@@ -86,6 +99,7 @@ function App(){
                         setSearchResults = {setSearchResults}
                         searchResults = {searchResults}
                         h2search = {h2search}
+                        topButton ={topButton}
                         
                     />
                 </div>

@@ -4,13 +4,16 @@ function VideosGallery({showSideMenu ,
                         videos , 
                         smallers ,
                         searchResults ,
-                        h2search  }){
+                        h2search,
+                        topButton  }){
 
         return(
                 <>
                     <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
 
-                        <button className='buttonTop'>d</button>
+                        <button  style={{ display: topButton ? 'block' : 'none' }}
+                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                    className='buttonTop'>d</button>
 
                         <h2 className='smallerH2' id='H2VideosDisplay'>
                             {searchResults.length === 0 ? "Top Videos ✨" : `" ${h2search} "` }</h2>
