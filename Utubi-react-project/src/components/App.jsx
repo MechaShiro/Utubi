@@ -31,8 +31,9 @@ function App(){
     //Scroll_TopButton
     const[topButton , setTopButton] = useState(false);
     useEffect(() => {
-        const targetScroll = document.documentElement.scrollHeight * 0.40;
         const handleTopButton = () => {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const targetScroll = totalHeight * 0.40;
             if( window.scrollY >= targetScroll){
                 setTopButton(true)
                 console.log("deu")
