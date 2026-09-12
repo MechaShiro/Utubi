@@ -20,7 +20,10 @@ p{
 .buttonTop{
     display: none;
     position: sticky;
-    top: 0;
+    top: 10%;
+    width: 80px;
+    height: 80px;
+    border-radius: var(--primary-borderRadius);
 }
 
 .cardsDisplay{

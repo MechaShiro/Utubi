@@ -83,12 +83,13 @@ function App(){
                 />
                 
                 <div className='div_body'>
-                    {showSideMenu && 
+                    
                         <SideMenu
                             setSearchResults = {setSearchResults}
                             setSearch = {setSearch}
+                            showSideMenu = {showSideMenu}
                             />
-                    }
+                    
                     
                     <VideosGallery 
                         showSideMenu = {showSideMenu}

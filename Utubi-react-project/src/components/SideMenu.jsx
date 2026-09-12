@@ -8,7 +8,8 @@ import BlockType1 from './BlockType1';
 import BlockType2 from './BlockType2';
 
     function SideMenu({setSearchResults ,
-                        setSearch
+                        setSearch,
+                        showSideMenu
     }){
         const goToTop = () => {
             document.getElementById("header")?.scrollIntoView( {behavior : "smooth"})
@@ -21,7 +22,9 @@ import BlockType2 from './BlockType2';
                 <>
                     <div className="div_SideMenu">
                         <ul className="ul_SideMenu">
-                            <BlockType1  source = {home} title="Home" onClick = {() => {setSearchResults([]) ;  window.scrollTo({top: 0,}) ; setSearch("")}}/>
+                            <BlockType1 showSideMenu={showSideMenu}  
+                                        source = {home} title={showSideMenu? "Home" : ""} 
+                                        onClick = {() => {setSearchResults([]) ;  window.scrollTo({top: 0,}) ; setSearch("")}}/>
 
                             <BlockType1  source = {smallers} title="Smallers" onClick = {goToSmallers}/>
 
