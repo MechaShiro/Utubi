@@ -13,16 +13,19 @@ import { searchVideos } from '../api/youtube'
 
 function App(){
 
+    //mostrar videos
     const [videos, setVideos] = useState([]);
     useEffect(() => {
         fetchVideos().then(setVideos);
     }, []);
     
+    //mostrar smallers
     const [smallers, setSmallers] = useState([]);
     useEffect(() => {
         fetchSmallers().then(setSmallers);
     }, []);
     
+    //mostrar sideMenu
     const[showSideMenu, setSideMenu] = useState(true);
     const handleSideMenu = () => (
         setSideMenu(!showSideMenu)
@@ -45,7 +48,7 @@ function App(){
         return () => window.removeEventListener('scroll', handleTopButton);
     }, []);
 
-    //SearchBar
+    //resultados da SearchBar
     const [search , setSearch] = useState("");
     const [h2search , setH2Search] = useState("");
     const[searchResults , setSearchResults] = useState([]);
@@ -67,6 +70,8 @@ function App(){
         
     }
     
+    // video playing page
+    const [videoPlaying, setVideoPlaying] = useState();
 
     return(
         
@@ -102,6 +107,8 @@ function App(){
                         searchResults = {searchResults}
                         h2search = {h2search}
                         topButton ={topButton}
+                        videoPlaying = {videoPlaying}
+                        setVideoPlaying = {setVideoPlaying}
                         
                     />
                 </div>

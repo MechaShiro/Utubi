@@ -5,17 +5,19 @@ function VideosGallery({showSideMenu ,
                         smallers ,
                         searchResults ,
                         h2search,
-                        topButton}){
+                        topButton,
+                        videoPlaying,
+                        setVideoPlaying}){
 
         return(
                 <>
                     <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
 
-                        <button     style={{ display: topButton ? 'block' : 'none' }}
-                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                    className='buttonTop'>
-                                        <img src="./src/imgs/icons/arrowUp_icon.svg"></img>
-                                    </button>
+                        <button style={{ display: topButton ? 'block' : 'none' }}
+                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                className='buttonTop'>
+                                <img src="./src/imgs/icons/arrowUp_icon.svg"></img>
+                        </button>
 
                         <h2 className='smallerH2' id='H2VideosDisplay'>
                             {searchResults.length === 0 ? "Top Videos ✨" : `" ${h2search} "` }</h2>
@@ -24,7 +26,10 @@ function VideosGallery({showSideMenu ,
 
                                     {searchResults.length === 0 ? 
                                         (showSideMenu ? videos.slice(0, 3) : videos).map((video) => (
-                                                <div className='card'> 
+                                                <div    className='card'
+                                                        onClick={() =>{
+                                                            setVideoPlaying(video);
+                                                            console.log(video.snippet.title)}}> 
                                                         <img 
                                                             className='card_thumbnail'
                                                             src={video.snippet.thumbnails.high.url}></img> 

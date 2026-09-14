@@ -1,3 +1,5 @@
+
+/* showSideMenu === true */
 .div_SideMenu{
     background-color: var(--primary-bg-color);
 
@@ -13,6 +15,26 @@
     display: flex;
     flex-direction:column ;
     justify-content: center;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+/* showSideMenu === false */
+
+.div_SideMenuF{
+    width: fit-content;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    margin-right: 15px;
+    
+}
+
+.ul_SideMenuF{
+    display: flex;
+    flex-direction:column ;
+    justify-content: left;
     margin-top: 15px;
     gap: 15px;
 }

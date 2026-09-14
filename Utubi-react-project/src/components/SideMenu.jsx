@@ -1,7 +1,9 @@
 import '../css/sidemenu.css'
 
 import home from '../imgs/icons/home_icon.svg';
+import homeAlt from '../imgs/icons/home_icon_White.svg';
 import smallers from '../imgs/icons/smallers_icon.svg';
+import smallersAlt from '../imgs/icons/smallers_icon_White.svg';
 import mostpopular from '../imgs/icons/mostpopular_icon.svg';
 
 import BlockType1 from './BlockType1';
@@ -20,15 +22,19 @@ import BlockType2 from './BlockType2';
         }
         return(
                 <>
-                    <div className="div_SideMenu">
-                        <ul className="ul_SideMenu">
+                    <div className={showSideMenu? "div_SideMenu" : "div_SideMenuF"}>
+                        <ul className={showSideMenu? "ul_SideMenu" : "ul_SideMenuF"}>
                             <BlockType1 showSideMenu={showSideMenu}  
-                                        source = {home} title={showSideMenu? "Home" : ""} 
+                                        source = {showSideMenu? home:homeAlt}
+                                        title={showSideMenu? "Home" : ""} 
                                         onClick = {() => {setSearchResults([]) ;  window.scrollTo({top: 0,}) ; setSearch("")}}/>
 
-                            <BlockType1  source = {smallers} title="Smallers" onClick = {goToSmallers}/>
+                            <BlockType1 showSideMenu={showSideMenu} 
+                                        source = {showSideMenu? smallers:smallersAlt} 
+                                        title={showSideMenu? "Smallers" : ""}
+                                        onClick = {goToSmallers}/>
 
-                            <BlockType2 source = {mostpopular} title="Most Popular"/>
+
                         </ul>
                     </div>
                 </>
