@@ -93,6 +93,7 @@ function App(){
                             setSearchResults = {setSearchResults}
                             setSearch = {setSearch}
                             showSideMenu = {showSideMenu}
+                            setVideoPlaying = {setVideoPlaying}
                             />
                     
                     

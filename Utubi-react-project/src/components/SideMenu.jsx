@@ -11,7 +11,8 @@ import BlockType2 from './BlockType2';
 
     function SideMenu({setSearchResults ,
                         setSearch,
-                        showSideMenu
+                        showSideMenu,
+                        setVideoPlaying
     }){
         const goToTop = () => {
             document.getElementById("header")?.scrollIntoView( {behavior : "smooth"})
@@ -27,7 +28,9 @@ import BlockType2 from './BlockType2';
                             <BlockType1 showSideMenu={showSideMenu}  
                                         source = {showSideMenu? home:homeAlt}
                                         title={showSideMenu? "Home" : ""} 
-                                        onClick = {() => {setSearchResults([]) ;  window.scrollTo({top: 0,}) ; setSearch("")}}/>
+                                        onClick = {() => {  setSearchResults([]) ;  
+                                                            window.scrollTo({top: 0,}) ; 
+                                                            setVideoPlaying("")}}/>
 
                             <BlockType1 showSideMenu={showSideMenu} 
                                         source = {showSideMenu? smallers:smallersAlt} 

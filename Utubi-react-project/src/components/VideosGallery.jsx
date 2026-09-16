@@ -10,10 +10,25 @@ function VideosGallery({showSideMenu ,
                         setVideoPlaying}){
 
         if(videoPlaying){
+            console.log(`https://www.youtube.com/embed/${videoPlaying.id.videoId}`);
+            console.log(videoPlaying);
             return(
                 <>
                     <div className='teste1'>
-                        <h1>{videoPlaying.snippet.title}</h1>
+                        <iframe
+                            width="1000"
+                            height="700"
+                            src={`https://www.youtube.com/embed/${videoPlaying.id}`}
+                            title={videoPlaying.snippet.title}
+                            
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen></iframe>
+                        
+                        <h2>{videoPlaying.snippet.title}</h2>
+
+                        <div>
+                            <img src={videoPlaying.snippet.thumbnails.high.url}></img>
+                        </div>
                     </div>
                 </>
             )
@@ -38,7 +53,8 @@ function VideosGallery({showSideMenu ,
                                                 <div    className='card'
                                                         onClick={() =>{
                                                             setVideoPlaying(video);
-                                                            console.log(video.snippet.title)}}> 
+                                                            console.log(video.snippet.title)
+                                                            }}> 
                                                         <img 
                                                             className='card_thumbnail'
                                                             src={video.snippet.thumbnails.high.url}></img> 
