@@ -160,3 +160,10 @@ p{
 .shortcard_thumbnail{
     border-radius: var(--primary-borderRadius);
 }
+
+.teste1{
+    color: red;
+    font-size: 30px;
+    margin-top: 20px;
+    background-color: blueviolet;
+}

@@ -9,6 +9,15 @@ function VideosGallery({showSideMenu ,
                         videoPlaying,
                         setVideoPlaying}){
 
+        if(videoPlaying){
+            return(
+                <>
+                    <div className='teste1'>
+                        <h1>{videoPlaying.snippet.title}</h1>
+                    </div>
+                </>
+            )
+        }
         return(
                 <>
                     <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
