@@ -1,7 +1,7 @@
 
 
 header{
-    background-color: var(--primary-color);
+    background-color: var(--white);
 
     width: 100%;
     height: 108px;
@@ -13,9 +13,11 @@ header{
 }
 
 h1{
-    color: var(--primary-bg-color);
+    color: var(--red);
 
-    font-weight: 800;
+    font-weight: lighter;
+    font-family: "Inter";
+    letter-spacing: 10px;
 
     text-transform: uppercase;
 }
@@ -29,21 +31,22 @@ form{
 
     display: flex;
 
-    
-    border-radius: var(--primary-borderRadius);
+    outline: 1px solid var(--red);
+    border-radius: 0px;
 
     input{
         width: calc(100% - 33px);
         height: 100%;
 
-        background-color: var(--primary-bg-color);
-        color: var(--primary-color);
+        background-color: var(--white);
+        color: black;
 
-        border-top-left-radius: var(--primary-borderRadius);
-        border-bottom-left-radius: var(--primary-borderRadius);
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
         border: none;
 
         font-size: 22px;
+
 
     }
 

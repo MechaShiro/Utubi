@@ -1,7 +1,6 @@
 
 /* showSideMenu === true */
 .div_SideMenu{
-    background-color: var(--primary-bg-color);
 
     width: 250px;
     flex-shrink: 0;

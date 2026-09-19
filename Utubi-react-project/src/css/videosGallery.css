@@ -61,16 +61,12 @@ p{
     align-items: left;
     
     transition: background-color .5s;
-    border-radius: var(--primary-borderRadius);
 }
 
-
-
-
-.card , 
+.card:hover,
 .card_searchDisplay:hover{
         cursor: pointer;
-        background-color: #00000034;
+        background-color: var(--lightBlue);
     }
 
 .card_thumbnail{
@@ -78,7 +74,6 @@ p{
     height: 208px;
     
     background-color: black;
-    border-radius: var(--primary-borderRadius);
 }
 
 .card_footer{
@@ -135,8 +130,12 @@ p{
 
 
 .smallerH2{
-    color: var(--primary-color);
+    color: var(--red);
     margin: 15px 0 5px 5px;
+    
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: lighter;
 }
 .smallersDisplay{
     display: flex;
@@ -145,11 +144,10 @@ p{
     height: 400px;
     width: 250px;
 
-    border-radius: var(--primary-borderRadius);
+    
 
     padding: 5px;
     transition: background-color .5s;
-    border-radius: var(--primary-borderRadius);
 }
 
 .shortcard:hover{

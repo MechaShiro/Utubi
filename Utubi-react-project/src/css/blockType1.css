@@ -6,9 +6,12 @@
     
     gap: 5px;
 
-    background-color: var(--primary-color);
+    background-color: var(--white);
 
-    font-weight: 800;
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-family: "Inter";
 
     width: 230px;
     height: fit-content;
@@ -16,10 +19,10 @@
     padding-top:15px;
     padding-bottom:15px;
 
-    border-radius: var(--primary-borderRadius);
+    border-radius: 0px;
 
     p{
-        color:var(--primary-bg-color) ;
+        color:var(--red) ;
         
     }
     img{

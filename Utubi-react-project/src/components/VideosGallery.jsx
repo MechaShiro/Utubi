@@ -44,7 +44,7 @@ function VideosGallery({showSideMenu ,
                         </button>
 
                         <h2 className='smallerH2' id='H2VideosDisplay'>
-                            {searchResults.length === 0 ? "Top Videos ✨" : `" ${h2search} "` }</h2>
+                            {searchResults.length === 0 ? "Top Videos" : `" ${h2search} "` }</h2>
 
                                 <div className={searchResults.length === 0 ? 'cardsDisplay' : 'cardsSearchDisplay'}>
 
@@ -98,7 +98,7 @@ function VideosGallery({showSideMenu ,
                                                 </div>))}
                                 </div>
 
-                                <h2 className='smallerH2' id='smallerH2'>Smallers 🤏</h2>
+                                <h2 className='smallerH2' id='smallerH2'>Smallers</h2>
                                 <div className='smallersDisplay' id='smallersDisplay'>
                                     
                                     {(showSideMenu ? smallers.slice(0, 5) : smallers).map(video => (

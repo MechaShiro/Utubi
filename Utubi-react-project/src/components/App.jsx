@@ -6,6 +6,7 @@ import '../css/videosGallery.css'
 import Header from './pages/Home/Header'
 import SideMenu from './SideMenu'
 import VideosGallery from './VideosGallery'
+import Skyline from './Skyline'
 
 import { fetchVideos } from '../api/youtube'
 import { fetchSmallers } from '../api/youtube'
