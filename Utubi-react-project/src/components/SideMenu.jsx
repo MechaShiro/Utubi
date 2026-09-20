@@ -26,14 +26,14 @@ import BlockType2 from './BlockType2';
                     <div className={showSideMenu? "div_SideMenu" : "div_SideMenuF"}>
                         <ul className={showSideMenu? "ul_SideMenu" : "ul_SideMenuF"}>
                             <BlockType1 showSideMenu={showSideMenu}  
-                                        source = {showSideMenu? home:homeAlt}
+                                        source = {home}
                                         title={showSideMenu? "Home" : ""} 
                                         onClick = {() => {  setSearchResults([]) ;  
                                                             window.scrollTo({top: 0,}) ; 
                                                             setVideoPlaying("")}}/>
 
                             <BlockType1 showSideMenu={showSideMenu} 
-                                        source = {showSideMenu? smallers:smallersAlt} 
+                                        source = {smallers} 
                                         title={showSideMenu? "Smallers" : ""}
                                         onClick = {goToSmallers}/>
 

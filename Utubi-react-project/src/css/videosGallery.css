@@ -1,6 +1,6 @@
 
 p{
-    color: var(--primary-color);
+    color: black;
 }
 
 .showSideMenu{
@@ -23,7 +23,8 @@ p{
     top: 10%;
     width: 32px;
     height: 32px;
-    border-radius: var(--primary-borderRadius);
+    border-radius: 0;
+    background-color: var(--white);
 }
 
 .cardsDisplay{
@@ -67,6 +68,10 @@ p{
 .card_searchDisplay:hover{
         cursor: pointer;
         background-color: var(--lightBlue);
+
+        p{
+            color: var(--white);
+        }
     }
 
 .card_thumbnail{
@@ -144,15 +149,17 @@ p{
     height: 400px;
     width: 250px;
 
-    
-
     padding: 5px;
-    transition: background-color .5s;
+    transition: all .5s;
 }
 
 .shortcard:hover{
         cursor: pointer;
-        background-color: #00000034;
+        background-color: var(--lightBlue);
+
+        p{
+            color: var(--white);
+        }
     }
 
 .shortcard_thumbnail{

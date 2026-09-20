@@ -46,8 +46,8 @@ form{
         border: none;
 
         font-size: 22px;
-
-
+        font-weight: lighter;
+        font-family: "Inter";
     }
 
     .btn_search{

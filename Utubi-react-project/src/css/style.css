@@ -16,7 +16,7 @@ padding: 0;
 }
 
 body{
-     background:linear-gradient(var(--white) , var(--lightBlue));
+     background:linear-gradient(var(--white) ,var(--white), var(--blue));
     background-attachment: fixed;
   
      min-height: 100vh;
