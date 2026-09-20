@@ -146,7 +146,7 @@ function Header({ 	handleSideMenu,
 							type="submit"
 							className="btn_search">
 							<img
-								src="./src/imgs/icons/search_icon.svg"
+								src="./src/imgs/icons/search_icon_azulEscuro.svg"
 								alt="Search Button"></img>
 						</button>
 					</form>

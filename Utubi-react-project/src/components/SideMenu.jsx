@@ -1,7 +1,7 @@
 import '../css/sidemenu.css'
 
 import home from '../imgs/icons/home_icon.svg';
-import homeAlt from '../imgs/icons/home_icon_White.svg';
+import homeAlt from '../imgs/icons/home_icon_azulEscuro.svg';
 import smallers from '../imgs/icons/smallers_icon.svg';
 import smallersAlt from '../imgs/icons/smallers_icon_White.svg';
 import mostpopular from '../imgs/icons/mostpopular_icon.svg';
@@ -26,7 +26,7 @@ import BlockType2 from './BlockType2';
                     <div className={showSideMenu? "div_SideMenu" : "div_SideMenuF"}>
                         <ul className={showSideMenu? "ul_SideMenu" : "ul_SideMenuF"}>
                             <BlockType1 showSideMenu={showSideMenu}  
-                                        source = {home}
+                                        source = {showSideMenu? homeAlt : home}
                                         title={showSideMenu? "Home" : ""} 
                                         onClick = {() => {  setSearchResults([]) ;  
                                                             window.scrollTo({top: 0,}) ; 

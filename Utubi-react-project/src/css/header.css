@@ -15,7 +15,6 @@ header{
 h1{
     color: var(--red);
 
-    font-weight: lighter;
     font-family: "Inter";
     letter-spacing: 10px;
 
@@ -31,7 +30,8 @@ form{
 
     display: flex;
 
-    outline: 1px solid var(--red);
+    outline: none;
+    border-bottom: 1px solid var(--azulEscuro);
     border-radius: 0px;
 
     input{

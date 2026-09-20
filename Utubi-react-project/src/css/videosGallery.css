@@ -140,7 +140,7 @@ p{
     
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-weight: lighter;
+    font-weight: 300;
 }
 .smallersDisplay{
     display: flex;

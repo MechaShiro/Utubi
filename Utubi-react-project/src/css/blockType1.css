@@ -21,18 +21,29 @@
 
     border-radius: 0px;
 
+    transition: all .5s;
+
     p{
-        color:var(--red) ;
+        color:var(--azulEscuro) ;
         
     }
     img{
         width: 32px;
-
-         padding-left: 15px;
+        padding-left: 15px;
     }
 
     &:hover{
-         cursor: pointer;
+        cursor: pointer;
+        background-color: var(--red);
+        letter-spacing: 10px;
+
+        img{
+            src: none;
+        }
+
+        p{
+            color: var(--white);
+        }
     }
 }
 

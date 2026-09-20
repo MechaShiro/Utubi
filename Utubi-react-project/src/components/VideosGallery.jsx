@@ -44,7 +44,7 @@ function VideosGallery({showSideMenu ,
                         </button>
 
                         <h2 className='smallerH2' id='H2VideosDisplay'>
-                            {searchResults.length === 0 ? "Top Videos" : `" ${h2search} "` }</h2>
+                            {searchResults.length === 0 ? "Top Videos" : ` ${h2search}` }</h2>
 
                                 <div className={searchResults.length === 0 ? 'cardsDisplay' : 'cardsSearchDisplay'}>
 

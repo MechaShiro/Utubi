@@ -3,6 +3,11 @@
     --white:white;
     --lightBlue:#A0C8F0;
     --blue:#4B78A5;
+    --vividBlue:#0080ff;
+
+    --azulClaro: #9cd6ff;
+    --azulMedio:#3d9aff;
+    --azulEscuro:#0f52ba;
     
 
     --primary-borderRadius:0px;
@@ -16,7 +21,8 @@ padding: 0;
 }
 
 body{
-     background:linear-gradient(var(--white) ,var(--white), var(--blue));
+    background:linear-gradient(180deg, var(--azulEscuro), var(--azulMedio), var(--azulClaro));
+    background-color: var(--blue);
     background-attachment: fixed;
   
      min-height: 100vh;
