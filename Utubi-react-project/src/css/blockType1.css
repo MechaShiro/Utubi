@@ -38,7 +38,7 @@
         letter-spacing: 10px;
 
         img{
-            src: none;
+            visibility: hidden;
         }
 
         p{

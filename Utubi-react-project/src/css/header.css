@@ -48,6 +48,13 @@ form{
         font-size: 22px;
         font-weight: lighter;
         font-family: "Inter";
+
+        transition: all 1s;
+    }
+
+    input:hover{
+        background-color: var(--red);
+        color: var(--white);
     }
 
     .btn_search{

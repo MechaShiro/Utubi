@@ -21,7 +21,7 @@ padding: 0;
 }
 
 body{
-    background:linear-gradient(180deg, var(--azulEscuro), var(--azulMedio), var(--azulClaro));
+    background:linear-gradient(180deg, var(--azulEscuro), var(--azulMedio), var(--azulClaro), var(--white),var(--white));
     background-color: var(--blue);
     background-attachment: fixed;
   

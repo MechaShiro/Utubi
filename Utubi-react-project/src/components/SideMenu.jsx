@@ -3,7 +3,7 @@ import '../css/sidemenu.css'
 import home from '../imgs/icons/home_icon.svg';
 import homeAlt from '../imgs/icons/home_icon_azulEscuro.svg';
 import smallers from '../imgs/icons/smallers_icon.svg';
-import smallersAlt from '../imgs/icons/smallers_icon_White.svg';
+import smallersAlt from '../imgs/icons/smallers_icon_azulEscuro.svg';
 import mostpopular from '../imgs/icons/mostpopular_icon.svg';
 
 import BlockType1 from './BlockType1';
@@ -33,7 +33,7 @@ import BlockType2 from './BlockType2';
                                                             setVideoPlaying("")}}/>
 
                             <BlockType1 showSideMenu={showSideMenu} 
-                                        source = {smallers} 
+                                        source = {showSideMenu? smallersAlt : smallers} 
                                         title={showSideMenu? "Smallers" : ""}
                                         onClick = {goToSmallers}/>
 
