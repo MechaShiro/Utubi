@@ -1,7 +1,6 @@
 
 /* showSideMenu === true */
 .div_SideMenu{
-
     width: 250px;
     flex-shrink: 0;
 
@@ -27,6 +26,7 @@
     top: 0;
     align-self: flex-start;
     margin-right: 15px;
+    margin-left: 15px;
     
 }
 

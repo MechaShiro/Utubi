@@ -4,11 +4,10 @@ p{
 }
 
 .showSideMenu{
-
     width: calc(100% - 250px);
+    height: 100%;
     min-width: 0;
-    flex-shrink: 1;
-    
+    flex-shrink: 1; 
 }
 
 .notShowSideMenu{
@@ -18,13 +17,30 @@ p{
 }
 
 .buttonTop{
+    margin: 0;
+    padding: 0;
     display: none;
-    position: sticky;
+    position: fixed;
     top: 10%;
     width: 32px;
     height: 32px;
     border-radius: 0;
     background-color: var(--white);
+    background-image: url('./src/imgs/icons/oneArrowUp_icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; 
+    cursor: pointer;
+    border: none; 
+    transition: all 0.5s ease;
+    box-sizing: border-box; 
+}
+
+.buttonTop:hover{
+    background-color: var(--red);
+    background-image:url('./src/imgs/icons/arrowUp_White_icon.svg') ;
+    height: 52px;
+    transform: translateY(-20px);
 }
 
 .cardsDisplay{
@@ -61,7 +77,7 @@ p{
     gap: 15px;
     align-items: left;
     
-    transition: all smooth 5s;
+    transition: all 1s;
 }
 
 .card:hover,

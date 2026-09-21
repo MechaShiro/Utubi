@@ -49,21 +49,21 @@
 
 .div_BlockType1_False{
 
-    width: fit-content;
+    width: 32px;
     height: fit-content;
 
     padding-top:15px;
     padding-bottom:15px;
 
     background-color: transparent;
+    transition: all 1s;
 
     img{
         width: 32px;
-
-         padding-left: 15px;
     }
 
     &:hover{
          cursor: pointer;
+         background-color: var(--red);
     }
 }
