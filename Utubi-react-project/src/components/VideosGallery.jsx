@@ -9,30 +9,28 @@ function VideosGallery({showSideMenu ,
                         videoPlaying,
                         setVideoPlaying}){
 
+        //click on Video to Play
         if(videoPlaying){
             console.log(`https://www.youtube.com/embed/${videoPlaying.id.videoId}`);
             console.log(videoPlaying);
             return(
                 <>
-                    <div className='teste1'>
-                        <iframe
-                            width="1000"
-                            height="700"
-                            src={`https://www.youtube.com/embed/${videoPlaying.id}`}
-                            title={videoPlaying.snippet.title}
-                            
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen></iframe>
-                        
-                        <h2>{videoPlaying.snippet.title}</h2>
-
-                        <div>
-                            <img src={videoPlaying.snippet.thumbnails.high.url}></img>
+                    <div className={showSideMenu ? 'videoPlaying' : 'videoPlayingCenter'}>
+                        <div className='videoContainer'>
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${videoPlaying.id}`}
+                                    title={videoPlaying.snippet.title}
+                                    
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen>
+                                </iframe>
                         </div>
+                        <p>{videoPlaying.snippet.title}</p>
                     </div>
                 </>
             )
         }
+
         return(
                 <>
                     <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
@@ -61,7 +59,7 @@ function VideosGallery({showSideMenu ,
                                                         <div className='card_footer'>
                                                             <img 
                                                                 className='card_footer___profilePic'
-                                                                src={video.snippet.thumbnails.high.url}></img>
+                                                                src={video.snippet.thumbnails.default.url}></img>
                                                             <div className='card_footer___text'> 
                                                                 <p className='card_footer___text__title' >
                                                                     {video.snippet.title}
