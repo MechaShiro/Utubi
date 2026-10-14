@@ -4,15 +4,17 @@ function VideosGallery({showSideMenu ,
                         videos , 
                         smallers ,
                         searchResults ,
-                        h2search,
-                        topButton,
-                        videoPlaying,
-                        setVideoPlaying}){
+                        h2search ,
+                        topButton ,
+                        videoPlaying ,
+                        setVideoPlaying ,
+                        getSugestions}){
 
         //click on Video to Play
         if(videoPlaying){
             console.log(`https://www.youtube.com/embed/${videoPlaying.id.videoId}`);
             console.log(videoPlaying);
+            console.log(getSugestions);
             return(
                 <>
                     <div className={showSideMenu ? 'videoPlaying' : 'videoPlayingCenter'}>

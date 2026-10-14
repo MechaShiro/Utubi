@@ -6,11 +6,11 @@ import '../css/videosGallery.css'
 import Header from './pages/Home/Header'
 import SideMenu from './SideMenu'
 import VideosGallery from './VideosGallery'
-import Skyline from './Skyline'
 
 import { fetchVideos } from '../api/youtube'
 import { fetchSmallers } from '../api/youtube'
 import { searchVideos } from '../api/youtube'
+import { getSugestions } from '../api/youtube'
 
 function App(){
 
@@ -74,6 +74,9 @@ function App(){
     // video playing page
     const [videoPlaying, setVideoPlaying] = useState();
 
+    // videos recomendados
+    
+
     return(
         
         <>
@@ -111,6 +114,7 @@ function App(){
                         topButton ={topButton}
                         videoPlaying = {videoPlaying}
                         setVideoPlaying = {setVideoPlaying}
+                        getSugestions = {getSugestions}
                         
                     />
                 </div>

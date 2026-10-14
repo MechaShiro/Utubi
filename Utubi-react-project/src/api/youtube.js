@@ -69,6 +69,7 @@ export async function fetchSmallers(){
     }
 }
 
+//search videos
 export async function searchVideos(params) {
 
     try {
@@ -89,6 +90,26 @@ export async function searchVideos(params) {
     catch(error){
         console.log(error)
     }
+}
+
+//getting sugestions
+
+export async function getSugestions(videoPlaying) {
+    const title = videoPlaying.snippet.title;
+    const url = BASE_URL;
+    url.search = new URLSearchParams({
+        part: "snippet",
+        type: "video",
+        q: title,
+        videoCategoryId: videoPlaying.snippet.categoryId,
+        maxResults: "10",
+        key: API_KEY,
+    });
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return data.items;
 }
 
 
