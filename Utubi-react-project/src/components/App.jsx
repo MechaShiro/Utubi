@@ -71,10 +71,14 @@ function App(){
         
     }
     
-    // video playing page
+    // videoPlaying page
     const [videoPlaying, setVideoPlaying] = useState();
 
-    // videos recomendados
+    // sugestions
+    const[sugestions ,  setSugestions] = useState([]);
+    useEffect(() => {
+        getSugestions().then(setSugestions);
+    }, []);
     
 
     return(
@@ -115,6 +119,8 @@ function App(){
                         videoPlaying = {videoPlaying}
                         setVideoPlaying = {setVideoPlaying}
                         getSugestions = {getSugestions}
+                        sugestions  = {sugestions}
+                        setSugestions = {setSugestions}
                         
                     />
                 </div>

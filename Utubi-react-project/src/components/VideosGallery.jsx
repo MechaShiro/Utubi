@@ -8,16 +8,20 @@ function VideosGallery({showSideMenu ,
                         topButton ,
                         videoPlaying ,
                         setVideoPlaying ,
-                        getSugestions}){
+                        getSugestions,
+                        sugestions,
+                        setSugestions}){
 
         //click on Video to Play
         if(videoPlaying){
             console.log(`https://www.youtube.com/embed/${videoPlaying.id.videoId}`);
             console.log(videoPlaying);
             console.log(getSugestions);
+            sugestions(getSugestions);
             return(
                 <>
-                    <div className={showSideMenu ? 'videoPlaying' : 'videoPlayingCenter'}>
+                    <div className={'videoPlaying'}>
+
                         <div className='videoContainer'>
                                 <iframe
                                     src={`https://www.youtube.com/embed/${videoPlaying.id}`}
@@ -26,8 +30,17 @@ function VideosGallery({showSideMenu ,
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen>
                                 </iframe>
+                                <p>{videoPlaying.snippet.title}</p>
                         </div>
-                        <p>{videoPlaying.snippet.title}</p>
+
+                        <div className='sugestions'>
+                            {getSugestions.slice(0 ,5).map(sugestion => (
+                                <div className='sugestionCard'>
+                                    <img src={sugestion.snippet.thumbnails.high.url}></img>
+                                </div>
+                            ))}
+                        </div>
+                        
                     </div>
                 </>
             )
