@@ -77,8 +77,19 @@ function App(){
     // sugestions
     const[sugestions ,  setSugestions] = useState([]);
     useEffect(() => {
-        getSugestions().then(setSugestions);
-    }, []);
+        if(videoPlaying && videoPlaying.snippet){
+            getSugestions(videoPlaying)
+                .then((data) => {
+                    setSugestions(data || [])
+                .catch((err) =>{
+                    console.error("Deu erro" , err)
+                    setSugestions([])
+                })
+            });
+        }
+        
+        console.log(sugestions)
+    }, [videoPlaying]);
     
 
     return(

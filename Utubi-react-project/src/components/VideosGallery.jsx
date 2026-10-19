@@ -16,8 +16,7 @@ function VideosGallery({showSideMenu ,
         if(videoPlaying){
             console.log(`https://www.youtube.com/embed/${videoPlaying.id.videoId}`);
             console.log(videoPlaying);
-            console.log(getSugestions);
-            sugestions(getSugestions);
+            console.log(sugestions);
             return(
                 <>
                     <div className={'videoPlaying'}>
@@ -34,11 +33,12 @@ function VideosGallery({showSideMenu ,
                         </div>
 
                         <div className='sugestions'>
-                            {getSugestions.slice(0 ,5).map(sugestion => (
+                            {sugestions.slice(1 ,5).map(sugestion => (
                                 <div className='sugestionCard'>
                                     <img src={sugestion.snippet.thumbnails.high.url}></img>
                                 </div>
                             ))}
+                            {console.log(sugestions)}
                         </div>
                         
                     </div>

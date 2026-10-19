@@ -188,7 +188,11 @@ p{
     color: black;
     font-size: 30px;
     margin-top: 20px;
-    width: 1000px;
+    width: 100%;
+
+    display: flex;
+    gap: 16px;
+    
 }
 
 .videoPlayingCenter{
@@ -196,12 +200,12 @@ p{
     color: black;
     font-size: 30px;
     margin-top: 20px;
-    width: 1000px;
+    width: 100%;
     
 }
 
 .videoContainer{
-    width: 100%;
+    flex: 1;
     aspect-ratio: 14 / 6;
 }
 
@@ -212,3 +216,20 @@ p{
 }
 
 .videoPlaying:hover{}
+
+/* sugestions*/
+.sugestions{
+    display: flex;
+    flex-direction: column;
+    width: 270px; 
+    flex-shrink: 0; 
+    height: 400px; 
+    overflow-y: auto;
+    overflow-x: hidden; 
+    
+}
+
+.sugestionCard{
+    width: 270px;
+    
+}

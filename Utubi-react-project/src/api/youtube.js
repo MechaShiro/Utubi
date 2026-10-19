@@ -96,7 +96,7 @@ export async function searchVideos(params) {
 
 export async function getSugestions(videoPlaying) {
     const title = videoPlaying.snippet.title;
-    const url = BASE_URL;
+    const url = new URL(`${BASE_URL}/search`);
     url.search = new URLSearchParams({
         part: "snippet",
         type: "video",
