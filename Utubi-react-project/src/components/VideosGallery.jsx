@@ -19,6 +19,7 @@ function VideosGallery({showSideMenu ,
             console.log(sugestions);
             return(
                 <>
+                <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
                     <div className={'videoPlaying'}>
 
                         <div className='videoContainer'>
@@ -32,7 +33,7 @@ function VideosGallery({showSideMenu ,
                                 <p>{videoPlaying.snippet.title}</p>
                         </div>
 
-                        <div className='sugestions'>
+                        <div className={showSideMenu ? 'sugestions' : 'sugestionsBig'}>
                             {sugestions.slice(1 ,5).map(sugestion => (
                                 <div className='sugestionCard'>
                                     <img src={sugestion.snippet.thumbnails.high.url}></img>
@@ -42,6 +43,7 @@ function VideosGallery({showSideMenu ,
                         </div>
                         
                     </div>
+                </div>
                 </>
             )
         }

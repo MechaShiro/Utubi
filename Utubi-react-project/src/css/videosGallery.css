@@ -195,15 +195,6 @@ p{
     
 }
 
-.videoPlayingCenter{
-    margin: auto;
-    color: black;
-    font-size: 30px;
-    margin-top: 20px;
-    width: 100%;
-    
-}
-
 .videoContainer{
     flex: 1;
     aspect-ratio: 14 / 6;
