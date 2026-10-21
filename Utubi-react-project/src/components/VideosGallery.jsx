@@ -19,10 +19,11 @@ function VideosGallery({showSideMenu ,
             console.log(sugestions);
             return(
                 <>
-                <div className={showSideMenu ? 'showSideMenu' : 'notShowSideMenu'}>
-                    <div className={'videoPlaying'}>
+                
+                    <div className={showSideMenu ? 'videoPlayingPage' : 'videoPlayingPageFull'}>
 
-                        <div className='videoContainer'>
+                        <div className={showSideMenu ? 'videoContainer' : 'videoContainerFull'}>
+                            <div className={showSideMenu ? 'iframeWrapper' : 'iframeWrapperFull'}>
                                 <iframe
                                     src={`https://www.youtube.com/embed/${videoPlaying.id}`}
                                     title={videoPlaying.snippet.title}
@@ -30,6 +31,7 @@ function VideosGallery({showSideMenu ,
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen>
                                 </iframe>
+                            </div>
                                 <p>{videoPlaying.snippet.title}</p>
                         </div>
 
@@ -39,11 +41,10 @@ function VideosGallery({showSideMenu ,
                                     <img src={sugestion.snippet.thumbnails.high.url}></img>
                                 </div>
                             ))}
-                            {console.log(sugestions)}
                         </div>
                         
                     </div>
-                </div>
+                
                 </>
             )
         }

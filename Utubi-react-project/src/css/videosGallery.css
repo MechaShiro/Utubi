@@ -184,7 +184,18 @@ p{
 }
 
 /* Video que demos Click*/
-.videoPlaying{
+.videoPlayingPage{
+    color: black;
+    font-size: 30px;
+    margin-top: 20px;
+    width: 100%;
+
+    display: flex;
+    gap: 16px;
+    
+}
+
+.videoPlayingPageFull{
     color: black;
     font-size: 30px;
     margin-top: 20px;
@@ -196,17 +207,33 @@ p{
 }
 
 .videoContainer{
-    flex: 1;
-    aspect-ratio: 14 / 6;
+    flex: 2;
+    width: 100%;
+    
+}
+.videoContainerFull{
+    flex: 2;
+    width: 100%;
+    
 }
 
-.videoContainer iframe {
+.iframeWrapper{
+    width: 100%;
+    aspect-ratio: 14 / 6;
+}
+.iframeWrapperFull{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.videoContainer iframe ,
+.videoContainerFull iframe{
     width: 100%;
     height: 100%;
     border: none;
 }
 
-.videoPlaying:hover{}
+
 
 /* sugestions*/
 .sugestions{
